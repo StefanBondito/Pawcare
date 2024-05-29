@@ -8,3 +8,10 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+// Font Awesome
+$fa-font-path: "~fa/../webfonts";
+@import '~fa/brands.scss';
+@import '~fa/regular.scss';
+@import '~fa/solid.scss';
+@import '~fa/fontawesome.scss';
