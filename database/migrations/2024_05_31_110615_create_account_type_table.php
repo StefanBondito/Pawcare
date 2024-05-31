@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('account_type', function (Blueprint $table) {
             $table->id('id');
             $table->id('fk_account_id');
-            $table->id('fk_pet_id')->nullable();
-            $table->id('fk_cart_id')->nullable();
-            $table->id('fk_address_id')->nullable();
-            $table->id('fk_payment_id')->nullable();
-            $table->string('name');
-            $table->string('phone');
+            $table->string('type');
+            $table->timestamp('dateAdded');
         });
     }
 
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('account_type');
     }
 };
