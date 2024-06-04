@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id('id');
-            $table->id('fk_account_id');
-            $table->id('fk_pet_id')->nullable();
-            $table->id('fk_cart_id')->nullable();
-            $table->id('fk_address_id')->nullable();
-            $table->id('fk_payment_id')->nullable();
+            $table->foreign('fk_account_id')->references('id')->on('accounts');
+            $table->foreign('fk_pet_id')->references('id')->on('pet');
+            $table->foreign('fk_cart_id')->references('id')->on('cart');
+            $table->foreign('fk_address_id')->references('id')->on('address');
+            $table->foreign('fk_payment_id')->references('id')->on('payment');
             $table->string('name');
             $table->string('phone');
         });
