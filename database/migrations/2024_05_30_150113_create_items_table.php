@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('price');
             $table->string('type');
-            $table->integer('fk_seller_id');
+            $table->integer('fk_shop_user_id');
         });
     }
 
