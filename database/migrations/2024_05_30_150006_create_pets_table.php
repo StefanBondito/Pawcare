@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('pets', function (Blueprint $table) {
 
-            $table->id();
+            $table->id('id');
             $table->timestamps();
             $table->string('name');
             $table->string('type');
-            $table->string('breed')->nullable();
-            $table->timestamps('dateOfBirth')->nullable();
-            $table->integer('age')->nullable();
+            $table->string('breed');
+            $table->string('dateOfBirth');
+            $table->integer('age');
 
         });
     }

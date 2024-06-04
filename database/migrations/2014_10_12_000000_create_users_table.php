@@ -14,15 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id('id');
-            $table->foreign('fk_account_id')->references('id')->on('accounts');
-            $table->foreign('fk_pet_id')->references('id')->on('pet');
-            $table->foreign('fk_cart_id')->references('id')->on('cart');
-            $table->foreign('fk_address_id')->references('id')->on('address');
-            $table->foreign('fk_payment_id')->references('id')->on('payment');
+            $table->id();
+            $table->integer("fk_account_id");
+            $table->integer('fk_pet_id');
+            $table->integer('fk_cart_id');
+            // $table->foreign('fk_address_id')->references('id')->on('address');
+            $table->integer('fk_payment_id');
             $table->string('name');
             $table->string('phone');
-            $table->timestamps('dateCreated');
+            $table->timestamps();
         });
     }
 
