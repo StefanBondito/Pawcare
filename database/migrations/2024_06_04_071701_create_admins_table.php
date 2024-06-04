@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pet', function (Blueprint $table) {
-
+        Schema::create('admins', function (Blueprint $table) {
             $table->id('id');
-            $table->timestamps();
             $table->string('name');
-            $table->string('type');
-            $table->string('breed');
-            $table->string('dateOfBirth');
-            $table->integer('age');
-
+            $table->foreign('fk_accounts_id')->references('id')->on('accounts');
+            $table->timestamps('dateCreated');
         });
     }
 
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pets');
+        Schema::dropIfExists('admins');
     }
 };
