@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('item', function (Blueprint $table) {
             $table->id();
-            $table->timestamps("dateAdded");
+            $table->timestamp("dateAdded");
             $table->string('name');
             $table->integer('price');
             $table->string('type');
-            $table->foreign('seller_id')->references('id')->on('pet_shop_user');
+            $table->integer('fk_shop_user_id');
         });
     }
 

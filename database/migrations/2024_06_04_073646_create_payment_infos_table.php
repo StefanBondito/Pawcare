@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('account_type', function (Blueprint $table) {
+        Schema::create('payment_infos', function (Blueprint $table) {
             $table->id();
-            $table->integer('fk_account_id');
-            $table->string('type');
-            $table->timestamp('dateAdded');
+            $table->timestamps();
+            $table->integer("payment_company_id");
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('account_type');
+        Schema::dropIfExists('payment_infos');
     }
 };

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('id');
             $table->string('name');
             $table->boolean('enable');
-            $table->timestamps('dateAdded');
+            $table->timestamp('dateAdded');
         });
     }
 

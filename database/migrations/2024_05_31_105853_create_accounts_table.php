@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('acounts', function (Blueprint $table) {
-            $table->id('id');
-            $table->varchar('email')->unique();
+        Schema::create('accounts', function (Blueprint $table) {
+            $table->id();
+            $table->string('email')->unique();
             $table->string('password');
-            $table->timestamps('dateCreated');
+            $table->timestamp('dateCreated');
         });
     }
 

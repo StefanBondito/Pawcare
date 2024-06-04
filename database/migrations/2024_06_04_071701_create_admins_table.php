@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('admins', function (Blueprint $table) {
             $table->id('id');
             $table->string('name');
-            $table->foreign('fk_accounts_id')->references('id')->on('accounts');
-            $table->timestamps('dateCreated');
+            $table->integer('fk_account_id');
+            $table->timestamp('dateCreated');
         });
     }
 

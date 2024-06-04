@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('account_type', function (Blueprint $table) {
-            $table->id();
-            $table->integer('fk_account_id');
-            $table->string('type');
-            $table->timestamp('dateAdded');
+        Schema::create('shopping_cart_contents', function (Blueprint $table) {
+            $table->integer("fk_cart_id");
+            $table->integer("fk_item_id");
+            $table->integer("item_count");
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('account_type');
+        Schema::dropIfExists('shopping_cart_contents');
     }
 };
