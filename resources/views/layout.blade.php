@@ -14,7 +14,7 @@
           <div class="row">
             {{-- HEADER --}}
             <div class="container">
-                <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+                <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 mx-5 border-bottom">
                   <div class="col-md-3 mb-2 mb-md-0">
                     <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
                       <img src="/storage/images/assets/15710504898649f93190a5626de1a74c.jpg" alt="" height="50">
