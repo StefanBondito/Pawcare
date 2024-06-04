@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreign('fk_payment_id')->references('id')->on('payment');
             $table->string('name');
             $table->string('phone');
+            $table->timestamps('dateCreated');
         });
     }
 

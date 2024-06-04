@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('price');
             $table->string('type');
-            $table->foreign('seller_id')->references('id')->on('petShop_user');
+            $table->foreign('seller_id')->references('id')->on('pet_shop_user');
             $table->timestamps('dateAdded');
         });
     }

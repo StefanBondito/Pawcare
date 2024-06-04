@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('account_type', function (Blueprint $table) {
             $table->id('id');
-            $table->id('fk_account_id');
+            $table->foreign('fk_account_id')->references('id')->on('accounts');
             $table->string('type');
             $table->timestamp('dateAdded');
         });
