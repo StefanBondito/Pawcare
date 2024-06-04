@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container-home">
-    <div class="landing px-4 py-5 my-5 text-center">
+    <div class="landing py-2 my-2 text-center">
         <img class="d-block mx-auto mb-4" src="" alt="" width="72" height="57">
         <h1 class="display-1 custom-color">Pawcare</h1>
         <div class="col-lg-6 mx-auto">
