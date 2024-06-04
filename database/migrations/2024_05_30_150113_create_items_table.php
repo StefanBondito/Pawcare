@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->id('id');
+            $table->id();
+            $table->timestamps("dateAdded");
             $table->string('name');
             $table->integer('price');
             $table->string('type');
             $table->foreign('seller_id')->references('id')->on('pet_shop_user');
-            $table->timestamps('dateAdded');
         });
     }
 

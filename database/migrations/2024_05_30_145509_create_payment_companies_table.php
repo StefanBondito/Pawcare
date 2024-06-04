@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('payment_companies', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('company_name');
         });
     }
 
