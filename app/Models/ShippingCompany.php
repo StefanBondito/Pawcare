@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class ShippingCompany extends Model
 {
     use HasFactory;
+    protected $table = 'shipping_companies';
+    protected $primaryKey = 'id';
+    protected $timestamp = 'true';
+    protected $guarded = [];
+
+    public function shoppingCompany(){
+        return $this->belongsTo(ShoppingCart::class);
+    }
 }
