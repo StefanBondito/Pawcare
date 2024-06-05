@@ -14,6 +14,11 @@ class AdminsSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $admins = [
+            ['name' => 'Stefan',
+            'fk_account_id' => 1,
+            ]
+        ];
+        DB::table('admins')->insert($admins);
     }
 }

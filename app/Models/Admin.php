@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pet extends Model
+class Admin extends Model
 {
     use HasFactory;
-    protected $table = 'pet';
+    protected $table = 'admins';
     protected $primaryKey = 'id';
     protected $timestamp = 'true';
     protected $guarded = [];
 
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
+
 }
