@@ -19,6 +19,6 @@ class AdminsSeeder extends Seeder
             'fk_account_id' => 1,
             ]
         ];
-        DB::table('admins')->insert($admins);
+        // DB::table('admins')->insert($admins);
     }
 }
