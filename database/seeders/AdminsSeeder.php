@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class AdminsSeeder extends Seeder
 {
@@ -19,6 +20,6 @@ class AdminsSeeder extends Seeder
             'fk_account_id' => 1,
             ]
         ];
-        // DB::table('admins')->insert($admins);
+        DB::table('admins')->insert($admins);
     }
 }
