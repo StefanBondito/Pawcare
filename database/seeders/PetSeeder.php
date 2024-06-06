@@ -14,6 +14,14 @@ class PetSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $pets = [
+            ['name' => 'Choco',
+            'type' => 'Dog',
+            'breed' => 'Rottweiler',
+            'dateOfBirth' => '2022-05-24',
+            'age' => 2,
+            ]
+        ];
+        DB::table('pets')->insert($pets);
     }
 }
