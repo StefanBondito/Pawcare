@@ -15,5 +15,8 @@ class AdminsSeeder extends Seeder
     public function run()
     {
         //
+        // DB::table('admins')->insert([
+        //     ''
+        // ])
     }
 }
