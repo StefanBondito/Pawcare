@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class AdminsSeeder extends Seeder
 {
@@ -15,9 +16,7 @@ class AdminsSeeder extends Seeder
     public function run()
     {
         $admins = [
-            ['name' => 'Stefan',
-            'fk_account_id' => 1,
-            ]
+            ['name' => 'Stefan', 'id' => 1, 'fk_account_id' => 1]
         ];
         DB::table('admins')->insert($admins);
     }
