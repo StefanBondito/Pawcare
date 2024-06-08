@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('account_type', function (Blueprint $table) {
             $table->id();
-            $table->integer('fk_account_id');
             $table->string('type');
             $table->timestamp('dateAdded');
         });
