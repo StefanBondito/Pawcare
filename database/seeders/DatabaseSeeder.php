@@ -25,7 +25,17 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AccountSeeder::class,
             AccountTypeSeeder::class,
-            AdminsSeeder::class
+            AccTypeJuncSeeder::class,
+            AdminsSeeder::class,
+            ItemSeeder::class,
+            PaymentInfoSeeder::class,
+            Permission::class,
+            PetSeeder::class,
+            PetShopUserSeeder::class,
+            ShopContactInfoSeeder::class,
+            ShoppingCartContentSeeder::class,
+            ShoppingCartSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
