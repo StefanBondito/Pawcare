@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
+use Illuminate\Support\Facades\Hash;
 
 class AccountSeeder extends Seeder
 {
@@ -26,12 +27,12 @@ class AccountSeeder extends Seeder
             'dateCreated' => now()
         ]);
 
-        // DB::table('accounts')->insert([
-        //     'id' => $faker->unique()->numberBetween(2, 99),
-        //     'email' => $faker->unique()->safeEmail(),
-        //     'fk_account_type_id' => 3,
-        //     'password' => $faker->password(),
-        //     'dateCreated' => $faker->dateTime()
-        // ]);
+        DB::table('accounts')->insert([
+            'id' => $faker->unique()->numberBetween(2, 99),
+            'email' => $faker->unique()->userName.'@gmail.com',
+            'fk_account_type_id' => 3,
+            'password' => Hash::make($faker->password),
+            'dateCreated' => $faker->dateTime()
+        ]);
     }
 }
