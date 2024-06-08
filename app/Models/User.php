@@ -49,4 +49,8 @@ class User extends Authenticatable
     public function pet(){
         return $this->hasMany(Pet::class);
     }
+
+    public function account(){
+        return $this->belongsTo(Account::class);
+    }
 }

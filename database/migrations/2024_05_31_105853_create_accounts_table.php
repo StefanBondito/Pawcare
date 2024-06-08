@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamp('dateCreated');
+            $table->integer('fk_account_type_id');
         });
     }
 

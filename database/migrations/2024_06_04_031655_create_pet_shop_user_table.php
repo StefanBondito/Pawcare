@@ -18,7 +18,8 @@ return new class extends Migration
             $table->integer('fk_account_id');
             $table->integer('fk_payment_id');
             $table->integer('fk_contact_id');
-            $table->integer('fk_address_id');
+            $table->text('address');
+            $table->string('shop_name');
             $table->timestamp('dateCreated');
         });
     }

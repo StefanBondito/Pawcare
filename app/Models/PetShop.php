@@ -20,4 +20,8 @@ class PetShop extends Model
     public function shopContact(){
         return $this->hasOne(ShopContactInfo::class);
     }
+
+    public function account(){
+        return $this->belongsTo(Account::class);
+    }
 }

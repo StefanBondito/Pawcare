@@ -5,19 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PaymentInfo extends Model
+class Account extends Model
 {
     use HasFactory;
-    protected $table = 'payment_infos';
+    protected $table = 'accounts';
     protected $primaryKey = 'id';
     protected $timestamp = 'true';
     protected $guarded = [];
 
-    public function user(){
-        return $this->belongsTo(User::class);
+    public function admin(){
+        return $this->hasOne(Admin::class);
     }
 
-    public function paymentCompany(){
-        return $this->belongsTo(PaymentCompany::class);
+    public function user(){
+        return $this->hasOne(User::class);
+    }
+
+    public function petShop(){
+        return $this->hasOne(PetShop::class);
     }
 }
