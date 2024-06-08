@@ -23,7 +23,9 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            AccountSeeder::class
+            AccountSeeder::class,
+            AccountTypeSeeder::class,
+            AdminsSeeder::class
         ]);
     }
 }
