@@ -24,4 +24,8 @@ class Account extends Model
     public function petShop(){
         return $this->hasOne(PetShop::class);
     }
+
+    public function accountType(){
+        return $this->belongsTo(AccountType::class);
+    }
 }
