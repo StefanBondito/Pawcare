@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 
-class ShopContactInfoSeeder extends Seeder
+class PetShopUserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,13 +17,14 @@ class ShopContactInfoSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('id_ID');
-        DB::table('shop_contact_infos')->insert([
+        DB::table('pet_shop_user')->insert([
             'id' => $faker->unique()->numberBetween(1, 99),
-            'shop_phone' => $faker->phoneNumber(),
-            'shop_email' => $faker->userName.'@gmail.com',
-            'shop_twitter' => '@'.$faker->userName,
-            'shop_instagram' => '@'.$faker->userName,
-            'shop_facebook' => $faker->userName,
+            'fk_account_id' => $faker->unique()->numberBetween(1, 99),
+            'fk_payment_id' => $faker->numberBetween(1, 10),
+            'fk_contact_id' => $faker->numberBetween(1, 10),
+            'address' => $faker->address(),
+            'shop_name' => $faker->word(),
+            'dateCreated' => now(),
         ]);
     }
 }

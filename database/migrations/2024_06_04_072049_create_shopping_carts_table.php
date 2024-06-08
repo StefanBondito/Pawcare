@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer("cart_total_items");
             $table->integer("cart_price");
             $table->timestamp("dateAdded");
-            $table->integer("fk_shipment_company_id");
             $table->integer("fk_shop_sender");
             $table->integer("fk_user_receiver");
         });
