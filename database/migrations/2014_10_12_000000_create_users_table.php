@@ -18,10 +18,10 @@ return new class extends Migration
             $table->integer("fk_account_id");
             $table->integer('fk_pet_id');
             $table->integer('fk_cart_id');
-            // $table->foreign('fk_address_id')->references('id')->on('address');
             $table->integer('fk_payment_id');
             $table->string('name');
             $table->string('phone');
+            $table->text('address');
             $table->timestamps();
         });
     }

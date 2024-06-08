@@ -21,6 +21,10 @@ Route::get('dashboard', function(){
     return view('dashboard');
 });
 
+route::get('about-us', function(){
+    return view('about-us');
+});
+
 Route::get('login', function(){
     return view('login');
 });

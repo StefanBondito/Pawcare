@@ -13,5 +13,7 @@ class Admin extends Model
     protected $timestamp = 'true';
     protected $guarded = [];
 
-
+    public function account(){
+        return $this->belongsTo(Account::class);
+    }
 }

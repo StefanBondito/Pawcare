@@ -1,4 +1,6 @@
-@extends('components.admin')
+@extends('components.layout')
 @section('content')
+
+
 
 @endsection

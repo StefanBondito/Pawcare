@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('components.layout')
 @section('content')
 
 <div class="container-home">
@@ -14,11 +14,12 @@
     </div>
 </div>
 
+{{-- OUR FEATURES --}}
 <div class="container px-4 py-5" id="featured-3">
-    <h2 class="pb-2 border-bottom">What do We Offer at Pawcare?</h2>
+    <h2 class="pb-2 border-bottom text-center">What do We Offer at Pawcare?</h2>
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
 
-      <div class="feature col">
+      <div class="feature col card">
         <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
           <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
         </div>
@@ -27,7 +28,7 @@
         <a href="#" class="btn btn-primary">Book Now!</a>
       </div>
 
-      <div class="feature col">
+      <div class="feature col card">
         <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
           <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
         </div>
@@ -36,7 +37,7 @@
         <a href="#" class="btn btn-success">Shop Now!</a>
       </div>
 
-      <div class="feature col">
+      <div class="feature col card">
         <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
           <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
         </div>
@@ -45,7 +46,9 @@
         <a href="#" class="btn btn-success">Book now!</a>
       </div>
     </div>
-  </div>
+</div>
+
+{{-- TESTIMONY --}}
 
 
 @endsection
