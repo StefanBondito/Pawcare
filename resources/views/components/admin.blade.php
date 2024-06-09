@@ -1,5 +1,5 @@
 {{-- Admin Master layout --}}
-<x-app title="{{ $title }}">
+<x-app title="{{ $title }} - Admin">
     <div class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark" style="background-color: #02809A;">
             <!-- Navbar Brand-->

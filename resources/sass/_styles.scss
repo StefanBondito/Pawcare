@@ -1,6 +1,10 @@
+$darkBlue: #04334C;
+$darkGreenBlue: #015F80;
+$greenBlue:  #02809A;
+$lightBlue: #058ECC;
+
 .titleText{
     font-weight: bolder;
-
 }
 
 .lead{
@@ -37,4 +41,28 @@
     color: transparent;
     font-weight: bolder;
     font-size: 32px;
+}
+
+.card-greeting-role {
+    font-size: .9rem;
+}
+
+.card-greeting-name {
+    font-size: 1rem;
+    color: $lightBlue;
+}
+
+.card-title-sm {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 1.3px;
+    color: $darkBlue !important;
+}
+
+.card-header{
+    background: -webkit-linear-gradient(105deg, #058ecc, #4ec1c1);
+    color: #fbf9f6;
+    font-weight: 500;
+    font-size: 36px;
 }
