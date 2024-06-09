@@ -19,7 +19,6 @@ return new class extends Migration
             $table->integer('fk_account_type_id');
             $table->string('password');
             $table->timestamp('dateCreated');
-            $table->integer('fk_account_type_id');
         });
     }
 

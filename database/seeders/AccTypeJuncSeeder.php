@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 
-class Permission extends Seeder
+class AccTypeJuncSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,11 +17,9 @@ class Permission extends Seeder
     public function run()
     {
         $faker = Faker::create('id_ID');
-        DB::table('permission')->insert([
-            'id' => $faker->unique()->numberBetween(1, 99),
-            'name' => $faker->word(),
-            'enable' => $faker->numberBetween(0,1),
-            'dateAdded' => now(),
+        DB::table('account_type_junction')->insert([
+            'fk_account_type_id' => $faker->unique()->numberBetween(1, 99),
+            'fk_account_permission_id' => $faker->unique()->numberBetween(1, 99),
         ]);
     }
 }
