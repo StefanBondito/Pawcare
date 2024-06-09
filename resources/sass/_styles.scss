@@ -1,5 +1,10 @@
-.custom-color{
-    color: blue;
+$darkBlue: #04334C;
+$darkGreenBlue: #015F80;
+$greenBlue:  #02809A;
+$lightBlue: #058ECC;
+
+.titleText{
+    font-weight: bolder;
 }
 
 .lead{
@@ -11,4 +16,53 @@
     background-size: cover;
 }
 
+.title-gradient{
+    background: -webkit-linear-gradient(0deg, (#d28e6c) 69%, (#e2a833) 75%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+.text-gradient{
+    background: -webkit-linear-gradient(0deg, #79b0b2, (#4f6a7f) 75%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: bolder;
+}
 
+.background-shade{
+    background-color: #b8aea8;
+}
+
+.subtitle-gradient{
+    background: -webkit-text-fill-color(0deg, #79b0b2, (#4f6a7f) 75%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: bolder;
+    font-size: 32px;
+}
+
+.card-greeting-role {
+    font-size: .9rem;
+}
+
+.card-greeting-name {
+    font-size: 1rem;
+    color: $lightBlue;
+}
+
+.card-title-sm {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 1.3px;
+    color: $darkBlue !important;
+}
+
+.card-header{
+    background: -webkit-linear-gradient(105deg, #058ecc, #4ec1c1);
+    color: #fbf9f6;
+    font-weight: 500;
+    font-size: 36px;
+}
