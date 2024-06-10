@@ -30,23 +30,27 @@ class PetController extends Controller
         return view('pets.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorePetRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StorePetRequest $request)
     {
-        //
+        $request->validate([
+            'name'=>'required|string',
+            'type'=>'required|string',
+            'breed'=>'required|string',
+            'dateOfBirth'=>'required|string',
+            'age'=>'required|numeric',
+        ]);
+
+        Pet::create([
+            'name' => $request->name,
+            'type' => $request->type,
+            'breed' => $request->breed,
+            'dateOfBirth' => $request->dateOfBirth,
+            'age' => $request->age,
+        ]);
+
+        return redirect()->route('pets.index')->with('success', true);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Pet  $pet
-     * @return \Illuminate\Http\Response
-     */
     public function show(Pet $pet)
     {
         //

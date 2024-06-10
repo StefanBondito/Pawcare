@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\PetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,7 @@ Route::post('/login',[LoginController::class, 'authenticate']);
 Route::get('/signup',[RegisterController::class, 'index']);
 Route::post('/signup',[RegisterController::class, 'store']);
 
+Route::controller(PetController::class)->prefix('pets')->name('pets.')->group(function () {
+    Route::delete('{pet}/delete', 'delete')->name('delete');
+});
+Route::resource('pets', PetController::class);

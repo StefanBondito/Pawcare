@@ -1,4 +1,4 @@
-<x-app title="Login">
+<x-app title="Login - Pawcare">
     <style>
         @media (max-width: 768px) {
             :root {
@@ -51,7 +51,7 @@
         Remember me
       </label>
     </div>
-    
+
     <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
     <p style="text-align: center" class="mt-3 mb-3 text-body-secondary">
         Don't have an account? <a href="\signup">Sign up</a>
