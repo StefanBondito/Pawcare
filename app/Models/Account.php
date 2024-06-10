@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Account extends Model
 {
     use HasFactory;
+    public $timestamps = false ;
     protected $table = 'accounts';
     protected $primaryKey = 'id';
     protected $timestamp = 'true';
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     public function admin(){
         return $this->hasOne(Admin::class);
