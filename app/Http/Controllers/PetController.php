@@ -15,17 +15,19 @@ class PetController extends Controller
      */
     public function index()
     {
-
+        return view('pets.index', [
+            'pets'=>Pet::all(),
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function manage(){
+        return view('pets.manage', [
+            'pets'=>Pet::all(),
+        ]);
+    }
     public function create()
     {
-        //
+        return view('pets.create');
     }
 
     /**
