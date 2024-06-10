@@ -22,13 +22,22 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
      
-        if(Auth::attempt($credentials)){
+        if(Auth::guard('web')->attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            $user = Auth::user();
+            switch ($user->fk_account_type_id) {
+                case 1:
+                    return redirect()->intended('home_admin'); //nothing yet
+                case 2:
+                    return redirect()->intended('home_petshop'); //nothing yet
+                case 3:
+                    return redirect()->intended('home_user');
+                default:
+                    return redirect()->intended('/');
+            }
         }
 
-        return back()->with('loginError', 'Login Failed!');
-
+        return back()->with('loginError', 'Login Failed! Incorrect email or password.');
         // dd('Login successful');
     }
 }

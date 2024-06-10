@@ -17,8 +17,7 @@
             </ul>
 
             <div class="col-md-3 text-end">
-              <a href="{{ route('login') }}" type="button" class="btn btn-outline-primary me-2">Login</a>
-              <a href="{{ route('signup') }}" type="button" class="btn btn-primary">Sign-up</a>
+                <h1>Welcome, {{ $user->name }}</h1>
             </div>
           </header>
         </div>

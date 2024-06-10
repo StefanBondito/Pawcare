@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
-            $table->integer('fk_account_type_id');
+            $table->unsignedBigInteger('fk_account_type_id');
             $table->string('password');
             $table->timestamp('dateCreated');
+            $table->rememberToken();
         });
     }
 
