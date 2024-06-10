@@ -26,8 +26,12 @@
 <div class="d-flex align-items-center py-4 bg-body-tertiary">
     <main style="max-width: 330px; padding: 1rem;" class="content w-100 m-auto">
     <form>
-        <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-        <h1 class="h3 mb-3 fw-normal">Please Login</h1>
+        <div class="mx-auto" style="width: 110px;">
+            <img class="mb-4 " src="/storage/images/assets/Logo.png" alt="" width="100">
+        </div>
+        <div class="mx-auto" style="width: 150px;">
+            <h1 class="h3 mb-3 fw-normal">Please Login</h1>
+        </div>
 
         <div class="form-floating">
         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">

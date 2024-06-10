@@ -12,18 +12,20 @@ $lightBlue: #058ECC;
 }
 
 .container-home{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0,0,0,0.9)), url('/public/storage/images/assets/Wallpaper.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0,0,0,0.9)), url('/public/storage/images/assets/petshop-wallpaper.jpg');
     background-size: cover;
+    height: 400px;
+    // margin-bottom: 40px;
 }
 
 .title-gradient{
-    background: -webkit-linear-gradient(0deg, (#d28e6c) 69%, (#e2a833) 75%);
+    background: -webkit-linear-gradient(0deg, (#d28e6c) 30%, (#e2a833) 75%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
 }
 .text-gradient{
-    background: -webkit-linear-gradient(0deg, #79b0b2, (#4f6a7f) 75%);
+    background: -webkit-linear-gradient(0deg, #79b0b2, (#4f6a7f));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
@@ -35,7 +37,7 @@ $lightBlue: #058ECC;
 }
 
 .subtitle-gradient{
-    background: -webkit-text-fill-color(0deg, #79b0b2, (#4f6a7f) 75%);
+    background: -webkit-linear-gradient(90deg, #79b0b2, (#4f6a7f) 75%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
@@ -65,4 +67,37 @@ $lightBlue: #058ECC;
     color: #fbf9f6;
     font-weight: 500;
     font-size: 36px;
+}
+
+.card-home{
+    width: 18rem;
+}
+
+.card-icon{
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.norm-text{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.home-image{
+    width: 75%;
+}
+
+.text-justify{
+    text-align: justify;
+}
+
+.about{
+    background-color: #fff3e1;
+}
+
+.logoFooter{
+    margin-left: 6rem;
 }
