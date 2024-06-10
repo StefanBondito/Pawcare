@@ -34,7 +34,9 @@
 </head>
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
 <main style="max-width: 330px; padding: 1rem;" class="content w-100 m-auto">
-<form>
+<form action="/signup" method="post">
+    @csrf
+
     <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
 
