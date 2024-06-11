@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -20,7 +21,12 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/home_user', [UserController::class, 'index'])->middleware('auth');
+Route::get('/home', function () {
+    return view('home');
+});
+
+
+Route::get('/home_user', [AccountController::class, 'index'])->middleware('auth');
 
 Route::get('dashboard', function(){
     return view('dashboard');

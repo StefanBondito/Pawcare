@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
@@ -13,7 +16,20 @@ class AccountController extends Controller
      */
     public function index()
     {
-        //
+        // $info = Auth::user();
+        // $user = $info->user();
+        
+        $user = User::with('account')->find(auth()->id());
+        // dd($user->account);
+
+        if($user->account != null)
+        {
+            return view('home_user', compact('user'));
+        }
+        else
+        {
+            return view('home');
+        }
     }
 
     /**
