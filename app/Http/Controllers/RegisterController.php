@@ -37,13 +37,7 @@ class RegisterController extends Controller
                 'dateCreated' => now(),
                 'fk_account_type_id' => 3,
             ]);
-            // $request->session()->flash('success', 'Account succesfully created.');
+            return redirect('login')->with('success', 'Account succesfully created.');
         }
-       
-        return redirect('signup')->with('success', 'Account succesfully created.');
-        // $request->session()->flash('success', 'Account succesfully created.');
-        // return $request->all();
-        
-        
     }
 }

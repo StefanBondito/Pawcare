@@ -2,8 +2,8 @@
     <div class="row">
       {{-- HEADER --}}
       <div class="container">
-          <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between mx-5 mt-2 border-bottom">
-            <div class="col-md-3 mb-md-0">
+          <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 mx-5 border-bottom">
+            <div class="col-md-3 mb-2 mb-md-0">
               <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
                 <img src="/storage/images/assets/Logo.png" alt="" height="30">
               </a>
@@ -17,8 +17,7 @@
             </ul>
 
             <div class="col-md-3 text-end">
-              <a href="{{ route('login') }}" type="button" class="btn btn-outline-primary me-2">Login</a>
-              <a href="{{ route('signup') }}" type="button" class="btn btn-primary">Sign-up</a>
+                <h1>Welcome, {{ $user->name }}</h1>
             </div>
           </header>
         </div>

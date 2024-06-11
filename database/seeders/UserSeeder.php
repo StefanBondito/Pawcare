@@ -18,16 +18,29 @@ class UserSeeder extends Seeder
     {
         $faker = Faker::create('id_ID');
         DB::table('users')->insert([
-            'id' => $faker->unique()->numberBetween(1, 99),
-            'fk_account_id' => $faker->unique()->numberBetween(1, 99),
+            'id' => 2,
+            'fk_account_id' => 3,
             'fk_pet_id' => $faker->unique()->numberBetween(1, 99),
             'fk_cart_id' => $faker->numberBetween(1, 10),
             'fk_payment_id' => $faker->numberBetween(1, 10),
-            'name' => $faker->name(),
+            'name' => 'Chira',
             'phone' => $faker->phoneNumber(),
             'address' => $faker->address(),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+        
+        // DB::table('users')->insert([
+        //     'id' => $faker->unique()->numberBetween(2, 99),
+        //     'fk_account_id' => $faker->unique()->numberBetween(4, 99),
+        //     'fk_pet_id' => $faker->unique()->numberBetween(1, 99),
+        //     'fk_cart_id' => $faker->numberBetween(1, 10),
+        //     'fk_payment_id' => $faker->numberBetween(1, 10),
+        //     'name' => $faker->name(),
+        //     'phone' => $faker->phoneNumber(),
+        //     'address' => $faker->address(),
+        //     'created_at' => now(),
+        //     'updated_at' => now(),
+        // ]);
     }
 }

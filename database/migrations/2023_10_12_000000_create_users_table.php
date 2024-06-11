@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->integer("fk_account_id");
+            $table->unsignedBigInteger('fk_account_id');
             $table->integer('fk_pet_id');
             $table->integer('fk_cart_id');
             $table->integer('fk_payment_id');
@@ -23,6 +23,9 @@ return new class extends Migration
             $table->string('phone');
             $table->text('address');
             $table->timestamps();
+
+            // Constraint Key Definitions
+            $table->foreign('fk_account_id')->references('id')->on('accounts')->onDelete('cascade');
         });
     }
 

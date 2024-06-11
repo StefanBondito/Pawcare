@@ -23,12 +23,28 @@ class AccountSeeder extends Seeder
             'id' => 1,
             'email' => 'natehiggers@gmail.com',
             'fk_account_type_id' => 1,
-            'password' => '1_H4t3_N1gg3rs',
+            'password' => Hash::make('1_H4t3_N1gg3rs'),
             'dateCreated' => now()
         ]);
 
         DB::table('accounts')->insert([
-            'id' => $faker->unique()->numberBetween(2, 99),
+            'id' => 2,
+            'email' => 'chira@gmail.com',
+            'fk_account_type_id' => 3,
+            'password' => Hash::make("asdasd"),
+            'dateCreated' => now()
+        ]);
+
+        DB::table('accounts')->insert([
+            'id' => 3,
+            'email' => 'chirazu@gmail.com',
+            'fk_account_type_id' => 2,
+            'password' => Hash::make("asdasd"),
+            'dateCreated' => now()
+        ]);
+
+        DB::table('accounts')->insert([
+            'id' => $faker->unique()->numberBetween(3, 99),
             'email' => $faker->unique()->userName.'@gmail.com',
             'fk_account_type_id' => 3,
             'password' => Hash::make($faker->password),
