@@ -1,6 +1,6 @@
        {{-- Guest Master Layout --}}
 <x-app title="{{ $title }} - Pawcare">
-    <x-navbarUser user="{{$user}}" />
+    <x-navbarUser :user="$user" />
 
         <main>
             {{ $slot }}

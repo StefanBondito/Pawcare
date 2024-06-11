@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -22,7 +23,6 @@ class Account extends Authenticatable
     public function admin(){
         return $this->hasOne(Admin::class);
     }
-
     public function user(){
         return $this->hasOne(User::class, 'fk_account_id', 'id');
     }
