@@ -37,8 +37,6 @@
         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
         <label for="floatingInput">Email address</label>
         </div>
-      @enderror
-    </div>
 
     <div class="form-floating">
       <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
@@ -56,8 +54,9 @@
     <p style="text-align: center" class="mt-3 mb-3 text-body-secondary">
         Don't have an account? <a href="\signup">Sign up</a>
     </p>
-    <p class="mt-5 mb-3 text-body-secondary">© 2024 - The day I fucking die</p>
+    <p class="mt-5 mb-3 text-body-secondary">© 2024 - Pawcare.Inc</p>
   </form>
 </main>
 </body>
 </html>
+</x-app>
