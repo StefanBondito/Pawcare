@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pet;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePetRequest;
 use App\Http\Requests\UpdatePetRequest;
 
 class PetController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct(){
+        $this->middleware('auth')->except(['create','store']);
+    }
+
     public function index()
     {
         return view('pets.index', [
@@ -27,7 +27,9 @@ class PetController extends Controller
     }
     public function create()
     {
-        return view('pets.create');
+        return view('pets.create', [
+            'user' => Auth::user(),
+        ]);
     }
 
     public function store(StorePetRequest $request)

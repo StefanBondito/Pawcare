@@ -1,4 +1,4 @@
-<div class="container">
+<nav class="container">
     <div class="row">
       {{-- HEADER --}}
       <div class="container">
@@ -10,10 +10,10 @@
             </div>
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-              <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-              <li><a href="#" class="nav-link px-2">Petshop</a></li>
-              <li><a href="#" class="nav-link px-2">Groom</a></li>
-              <li><a href="#" class="nav-link px-2">Clinic</a></li>
+              <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+              <li><a href="{{ route('login') }}" class="nav-link px-2">Shopping</a></li>
+              <li><a href="/" class="nav-link px-2">Groom</a></li>
+              <li><a href="/" class="nav-link px-2">Clinic</a></li>
             </ul>
 
             <div class="col-md-3 text-end">
@@ -23,4 +23,4 @@
           </header>
         </div>
     </div>
-  </div>
+</nav>

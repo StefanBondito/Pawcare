@@ -4,18 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PetController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
+// Auth
+Auth::routes();
 
 Route::get('/', function () {
     return view('home');
@@ -37,4 +31,14 @@ Route::post('/signup',[RegisterController::class, 'store']);
 Route::controller(PetController::class)->prefix('pets')->name('pets.')->group(function () {
     Route::delete('{pet}/delete', 'delete')->name('delete');
 });
-Route::resource('pets', PetController::class);
+Route::resource('pets', PetController::class)->middleware('auth');
+Route::post('/store', [PetController::class, 'store'])->middleware('auth')->name('pets.store');
+
+Route::controller(ItemController::class)->prefix('items')->name('items.')->group(function () {
+    Route::delete('{item}/delete', 'delete')->name('delete');
+});
+Route::resource('items', ItemController::class);
+
+// Route::middleware('auth')->group(function () {
+//     Route::post('{pet}/store', [PetController::class, 'store'])->name('pets.store');
+// });

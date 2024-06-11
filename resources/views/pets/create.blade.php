@@ -1,4 +1,4 @@
-<x-admin title="Insert Pet Data">
+<x-guestUser title="Insert Pet Data" user="{{$user}}">
     <x-card>
         <x-slot name="subtitle">pets</x-slot>
         <x-slot name="title">Insert New Pet</x-slot>
@@ -23,6 +23,7 @@
                         </span>
                     @endif
                 </div>
+
                 <div class="form-group mb-3">
                     <label for='pet_breed'>Pet Breed</label>
                     <input type="text" class="form-control" name="breed" id='breed' placeholder='Ex. Persian, Chihuahua, etc' value="{{ old('breed') }}" required>
@@ -32,6 +33,7 @@
                         </span>
                     @endif
                 </div>
+
                 <div class="form-group mb-3">
                     <label for='pet_dob'>Pet Date of Birth</label>
                     <input type="text" class="form-control" name="dateOfBirth" id='dateOfBirth' placeholder='Ex. 14-02-2023' value="{{ old('dateOfBirth') }}" required>
@@ -41,6 +43,7 @@
                         </span>
                     @endif
                 </div>
+
                 <div class="form-group mb-3">
                     <label for='pet_age'>Pet age</label>
                     <input type="text" class="form-control" name="age" id='age' placeholder='Ex. 12, 4, etc' value="{{ old('age') }}" required>
@@ -50,6 +53,15 @@
                         </span>
                     @endif
                 </div>
+
+                <div class="row">
+                    <div class="col">
+                        <a href="{{ route("pets.index") }}" class="btn btn-outline-secondary w-100 my-2">Back</a>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-outline-primary w-100 my-2">Submit</button>
+                    </div>
+                </div>
         </form>
     </x-card>
-</x-admin>
+</x-guestUser>

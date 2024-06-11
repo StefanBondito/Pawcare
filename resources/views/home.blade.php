@@ -7,7 +7,7 @@
         <div class="col-lg-6 mx-auto">
             <h2 class="mb-4 subtitle-gradient">Pawcare does not bluff, we make a deal</h2>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <a href="{{ route('pets.create') }}">
+                <a href="{{ route('login') }}">
                     <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Book Now!</button>
                 </a>
             </div>

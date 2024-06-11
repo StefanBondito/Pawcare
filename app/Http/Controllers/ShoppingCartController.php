@@ -1,21 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Item;
 use App\Models\ShoppingCart;
 use App\Http\Requests\StoreShoppingCartRequest;
 use App\Http\Requests\UpdateShoppingCartRequest;
 
 class ShoppingCartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        return view('cart.index', [
+            'items'=>Item::all(),
+            'carts'=>ShoppingCart::all(),
+        ]);
     }
 
     /**
