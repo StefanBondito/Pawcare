@@ -1,4 +1,4 @@
-<div class="card border-0 overflow-hidden shadow rounded-20 mb-5">
+<div class="card border-0 overflow-hidden shadow rounded-20 mb-5 mx-5">
     <div class="card-header bg-dark-green-blue"></div>
     <div class="card-body my-3">
         <h6 class="card-title-sm">{{ $subtitle }}</h6>
