@@ -18,7 +18,7 @@
             </ul>
 
             <div class="col-md-3 text-end">
-              <h6>Welcome User</h6>
+                <h1>Welcome, {{ $user->name }}!</h1>
             </div>
           </header>
         </div>

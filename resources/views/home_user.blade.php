@@ -1,4 +1,4 @@
-<x-guestUser title="Homepage" user="{{$user}}">
+<x-guestUser title="Homepage" :user="$user">
 
 <div class="container-home">
     <div class="landing py-2 my-2 text-center">
