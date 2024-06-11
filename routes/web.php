@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,18 +20,16 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/home_user', [UserController::class, 'index'])->middleware('auth');
+
 Route::get('dashboard', function(){
     return view('dashboard');
 });
 
-route::get('about-us', function(){
-    return view('about-us');
-});
-
 // Route::get('/login', function(){ return view('login'); });
-Route::get('/login',[LoginController::class, 'index']);
+Route::get('/login',[LoginController::class, 'index'])->name('login');
 Route::post('/login',[LoginController::class, 'authenticate']);
 
-Route::get('/signup',[RegisterController::class, 'index']);
+Route::get('/signup',[RegisterController::class, 'index'])->name('signup');
 Route::post('/signup',[RegisterController::class, 'store']);
 

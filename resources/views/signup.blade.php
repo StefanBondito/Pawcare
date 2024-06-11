@@ -79,12 +79,6 @@
       <label for="password_confirmation">Confirm Password</label>
     </div>
     <button class="btn btn-primary w-100 py-2" type="submit">Sign Up</button>
-    @if(session()->has('success'))
-    <div class="alert alert-success alret-dismissable fade show" role="alert">
-        <strong>{{ session('success') }}</strong>
-        <button type="buttion" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @endif
     <p style="text-align: center" class="mt-3 mb-3 text-body-secondary">
         Already have an account? <a href="\login">Login</a>
     </p>
