@@ -46,12 +46,6 @@ class ItemController extends Controller
         return redirect()->route('items.index')->with('success', true);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
     public function show(Item $item)
     {
         //
