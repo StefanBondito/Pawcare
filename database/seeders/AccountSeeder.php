@@ -21,9 +21,9 @@ class AccountSeeder extends Seeder
 
         DB::table('accounts')->insert([
             'id' => 1,
-            'email' => 'natehiggers@gmail.com',
+            'email' => 'nathan@gmail.com',
             'fk_account_type_id' => 1,
-            'password' => Hash::make('1_H4t3_N1gg3rs'),
+            'password' => Hash::make('1234'),
             'dateCreated' => now()
         ]);
 

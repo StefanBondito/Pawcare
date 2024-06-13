@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('item', function (Blueprint $table) {
             $table->id();
-            $table->timestamp("dateAdded");
+            $table->timestamps();
             $table->string('name');
             $table->integer('price');
             $table->string('type');
-            $table->integer('fk_shop_user_id');
+            $table->integer('fk_shop_user_id')->nullable();
         });
     }
 

@@ -23,12 +23,27 @@ class ItemController extends Controller
     }
     public function create()
     {
-        return view('items.create');
+        return view('items.create', [
+            'user' => Auth::user(),
+        ]);
     }
 
     public function store(StoreItemRequest $request)
     {
-        //
+        $request->validate([
+            'name'=>'required|string',
+            'type'=>'required|string',
+            'price'=>'required|numeric',
+        ]);
+
+        Item::create([
+            'name' => $request->name,
+            'type' => $request->type,
+            'price' => $request->price,
+
+        ]);
+
+        return redirect()->route('items.index')->with('success', true);
     }
 
     /**

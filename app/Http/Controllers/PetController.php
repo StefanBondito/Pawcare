@@ -9,9 +9,9 @@ use App\Http\Requests\UpdatePetRequest;
 
 class PetController extends Controller
 {
-    public function __construct(){
-        $this->middleware('auth')->except(['create','store']);
-    }
+    // public function __construct(){
+    //     $this->middleware('auth')->except(['create','store']);
+    // }
 
     public function index()
     {

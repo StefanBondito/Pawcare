@@ -1,4 +1,4 @@
-<x-guestUser title="Insert Pet Data" user="{{$user}}">
+<x-guestUser title="Insert Pet Data" :user="$user">
     <x-card>
         <x-slot name="subtitle">pets</x-slot>
         <x-slot name="title">Insert New Pet</x-slot>
@@ -56,7 +56,7 @@
 
                 <div class="row">
                     <div class="col">
-                        <a href="{{ route("pets.index") }}" class="btn btn-outline-secondary w-100 my-2">Back</a>
+                        <a href="/home_user" class="btn btn-outline-secondary w-100 my-2">Back</a>
                     </div>
                     <div class="col">
                         <button type="submit" class="btn btn-outline-primary w-100 my-2">Submit</button>

@@ -36,15 +36,14 @@ Route::post('/signup',[RegisterController::class, 'store']);
 
 Route::controller(PetController::class)->prefix('pets')->name('pets.')->group(function () {
     Route::delete('{pet}/delete', 'delete')->name('delete');
+    Route::post('store', 'store')->name('store');
 });
-Route::resource('pets', PetController::class)->middleware('auth');
-Route::post('/store', [PetController::class, 'store'])->middleware('auth')->name('pets.store');
+Route::resource('pets', PetController::class);
 
 Route::controller(ItemController::class)->prefix('items')->name('items.')->group(function () {
     Route::delete('{item}/delete', 'delete')->name('delete');
+    Route::post('store', 'store')->name('store');
+
 });
 Route::resource('items', ItemController::class);
 
-// Route::middleware('auth')->group(function () {
-//     Route::post('{pet}/store', [PetController::class, 'store'])->name('pets.store');
-// });

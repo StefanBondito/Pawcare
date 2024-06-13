@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="card-body text-center">
-            <h3 class="fs-2 text-body-emphasis text-gradient text-center">Shopping</h3>
+            <h3 class="fs-2 text-body-emphasis text-gradient text-center">Shop</h3>
             <p>Don't have time to resupply and stock up? Come and see what our product catalogue has to offer </p>
             <a href="#" class="btn btn-success">Shop Now!</a>
         </div>
