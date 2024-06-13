@@ -23,6 +23,7 @@ class PetSeeder extends Seeder
             'age' => 2,
             ]
         ];
+        
         DB::table('pet')->insert($pets);
     }
 }

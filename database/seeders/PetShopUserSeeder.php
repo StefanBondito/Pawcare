@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\PetShop;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -17,14 +18,10 @@ class PetShopUserSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('id_ID');
-        DB::table('pet_shop_user')->insert([
-            'id' => $faker->unique()->numberBetween(1, 99),
-            'fk_account_id' => $faker->unique()->numberBetween(1, 99),
-            'fk_payment_id' => $faker->numberBetween(1, 10),
-            'fk_contact_id' => $faker->numberBetween(1, 10),
+        PetShop::create([
+            'user_id' => 2,
             'address' => $faker->address(),
-            'shop_name' => $faker->word(),
-            'dateCreated' => now(),
+            'shop_name' => "Petcare",
         ]);
     }
 }

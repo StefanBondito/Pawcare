@@ -11,9 +11,12 @@ class AccountType extends Model
     protected $table = 'account_type';
     protected $primaryKey = 'id';
     protected $timestamp = 'true';
+    public const ADMIN_ID = 1;
+    public const PET_SHOP_ID = 2;
+    public const CUSTOMER_ID = 3;
     protected $guarded = [];
 
-    public function account(){
-        return $this->hasMany(Account::class);
+    public function types(){
+        return $this->hasMany(User::class);
     }
 }

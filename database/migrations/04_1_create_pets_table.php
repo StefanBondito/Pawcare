@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pet_shop_user', function (Blueprint $table) {
+        Schema::create('pet', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('fk_account_id');
-            $table->integer('fk_payment_id');
-            $table->integer('fk_contact_id');
-            $table->text('address');
-            $table->string('shop_name');
-            $table->timestamp('dateCreated');
+            $table->string('name');
+            $table->string('type');
+            $table->string('breed')->default("Unknown");
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->date('dateOfBirth');
+            $table->integer('age');
+            $table->timestamps();
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pet_shop_user');
+        Schema::dropIfExists('pets');
     }
 };

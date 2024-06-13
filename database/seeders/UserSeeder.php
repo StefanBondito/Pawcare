@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\{DB, Hash};
 use Faker\Factory as Faker;
+use App\Models\User;
 
 class UserSeeder extends Seeder
 {
@@ -17,30 +18,31 @@ class UserSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('id_ID');
-        DB::table('users')->insert([
-            'id' => 2,
-            'fk_account_id' => 3,
-            'fk_pet_id' => $faker->unique()->numberBetween(1, 99),
-            'fk_cart_id' => $faker->numberBetween(1, 10),
-            'fk_payment_id' => $faker->numberBetween(1, 10),
-            'name' => 'Chira',
-            'phone' => $faker->phoneNumber(),
-            'address' => $faker->address(),
-            'created_at' => now(),
-            'updated_at' => now(),
+
+        User::create([
+            'id' => 1,
+            'email' => 'stefanbondito@gmail.com',
+            'fk_account_type_id' => 1,
+            'password' => Hash::make('1234'),
+            'dateCreated' => now()
         ]);
-        
-        // DB::table('users')->insert([
-        //     'id' => $faker->unique()->numberBetween(2, 99),
-        //     'fk_account_id' => $faker->unique()->numberBetween(4, 99),
-        //     'fk_pet_id' => $faker->unique()->numberBetween(1, 99),
-        //     'fk_cart_id' => $faker->numberBetween(1, 10),
-        //     'fk_payment_id' => $faker->numberBetween(1, 10),
-        //     'name' => $faker->name(),
-        //     'phone' => $faker->phoneNumber(),
-        //     'address' => $faker->address(),
-        //     'created_at' => now(),
-        //     'updated_at' => now(),
-        // ]);
+
+        User::create([
+            'id' => 2,
+            'email' => 'chira@gmail.com',
+            'fk_account_type_id' => 2,
+            'password' => Hash::make("asdasd"),
+            'dateCreated' => now()
+        ]);
+
+        User::create([
+            'id' => 3,
+            'email' => 'chirazu@gmail.com',
+            'fk_account_type_id' => 3,
+            'password' => Hash::make("asdasd"),
+            'dateCreated' => now()
+        ]);
+
+        User::factory(5)->create();
     }
 }

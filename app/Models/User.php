@@ -20,7 +20,9 @@ class User extends Authenticatable
     protected $fillable = [
         'email',
         'password',
-        'name'
+        'name',
+        'phone',
+        'address'
     ];
 
     /**
@@ -44,15 +46,14 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
-    public function paymentInfo(){
+    public function pay_info(){
         return $this->hasMany(PaymentInfo::class);
     }
 
     public function pet(){
         return $this->hasMany(Pet::class);
     }
-
-    public function account(){
-        return $this->belongsTo(Account::class, 'fk_account_id', 'id');
+    public function type(){
+        return $this->belongsTo(AccountType::class);
     }
 }

@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('permission', function (Blueprint $table) {
-            $table->id('id');
+        Schema::create('item', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
-            $table->boolean('enable');
-            $table->timestamp('dateAdded');
+            $table->integer('price');
+            $table->string('type');
+            $table->foreignId('shop_id')->constrained('pet_shop')->onDelete('cascade');
+            $table->string('logo');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permission');
+        Schema::dropIfExists('items');
     }
 };

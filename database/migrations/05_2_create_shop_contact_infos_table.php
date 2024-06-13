@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('account_type', function (Blueprint $table) {
+        Schema::create('shop_contact', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
-            $table->timestamp('dateAdded');
+            $table->string("shop_phone");
+            $table->string("shop_email");
+            $table->string("shop_twitter")->nullable();
+            $table->string("shop_instagram")->nullable();
+            $table->string("shop_facebook")->nullable();
+            $table->timestamps();
         });
     }
 
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('account_type');
+        Schema::dropIfExists('shop_contact_infos');
     }
 };

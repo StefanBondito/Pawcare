@@ -15,17 +15,15 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('fk_account_id');
-            $table->integer('fk_pet_id');
-            $table->integer('fk_cart_id');
-            $table->integer('fk_payment_id');
+            $table->string('email')->unique();
+            $table->integer('account_type');
+            $table->string('password');
             $table->string('name');
-            $table->string('phone');
-            $table->text('address');
+            $table->string('phone')->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
 
             // Constraint Key Definitions
-            $table->foreign('fk_account_id')->references('id')->on('accounts')->onDelete('cascade');
         });
     }
 
