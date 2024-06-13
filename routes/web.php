@@ -13,11 +13,21 @@ use App\Http\Controllers\UserController;
 Auth::routes();
 
 Route::get('/', function () {
-    return view('home');
+    if (Auth::check()) {
+        return redirect('/home_user');
+    } else {
+        // If not authenticated, show the default page
+        return view('home');
+    }
 });
 
 Route::get('/home', function () {
-    return view('home');
+    if (Auth::check()) {
+        return redirect('/home_user');
+    } else {
+        // If not authenticated, show the default page
+        return view('home');
+    }
 });
 
 

@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pet;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePetRequest;
 use App\Http\Requests\UpdatePetRequest;
 
 class PetController extends Controller
 {
-    public function __construct(){
-        $this->middleware('auth')->except(['create','store']);
-    }
+    // public function __construct(){
+    //     $this->middleware('auth');
+    //     $user = Auth::user();
+    //     return dd($user);
+    // }
 
     public function index()
     {
@@ -28,7 +31,7 @@ class PetController extends Controller
     public function create()
     {
         return view('pets.create', [
-            'user' => Auth::user(),
+            'user' => User::with('account')->find(auth()->id()),
         ]);
     }
 

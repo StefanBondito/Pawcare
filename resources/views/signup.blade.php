@@ -67,7 +67,7 @@
     </div>
     <div class="form-floating">
       <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password" required value="{{old('password')}}">
-      <label for="floatingPassword">Password</label>
+      <label for="password">Password</label>
       @error('password')
         <div class="invalid-feedback">
             {{ $message }}

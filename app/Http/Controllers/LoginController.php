@@ -21,8 +21,9 @@ class LoginController extends Controller
             'email' => 'required|email:dns',
             'password' => 'required'
         ]);
-     
-        if(Auth::guard('web')->attempt($credentials)){
+        $remember = $request->has('remember');
+
+        if(Auth::guard('web')->attempt($credentials, $remember)){
             $request->session()->regenerate();
             $user = Auth::user();
             switch ($user->fk_account_type_id) {
