@@ -19,9 +19,9 @@ class ItemSeeder extends Seeder
         $faker = Faker::create('id_ID');
         DB::table('item')->insert([
             'id' => $faker->unique()->numberBetween(1, 99),
-            'name' => $faker->word(),
-            'price' => $faker->randomNumber(5, true),
-            'type' => $faker->word(),
+            'name' => "Dog Cologne",
+            'price' => 20,
+            'type' => "Cologne",
             'fk_shop_user_id' => $faker->unique()->numberBetween(1, 99)
         ]);
     }

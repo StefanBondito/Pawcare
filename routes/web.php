@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -13,12 +14,7 @@ use App\Http\Controllers\UserController;
 Auth::routes();
 
 Route::get('/', function () {
-    if (Auth::check()) {
-        return redirect('/home_user');
-    } else {
-        // If not authenticated, show the default page
-        return view('home');
-    }
+    return redirect('/home');
 });
 
 Route::get('/home', function () {
@@ -49,6 +45,11 @@ Route::controller(PetController::class)->prefix('pets')->name('pets.')->group(fu
 });
 Route::resource('pets', PetController::class)->middleware('auth');
 Route::post('/store', [PetController::class, 'store'])->middleware('auth')->name('pets.store');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/logout', [LogoutController::class, 'perform_logout'])->middleware('auth')->name('logout');
+});
+
 
 Route::controller(ItemController::class)->prefix('items')->name('items.')->group(function () {
     Route::delete('{item}/delete', 'delete')->name('delete');
