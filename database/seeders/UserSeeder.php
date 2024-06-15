@@ -21,26 +21,26 @@ class UserSeeder extends Seeder
 
         User::create([
             'id' => 1,
+            'name' => 'Stefan',
             'email' => 'stefanbondito@gmail.com',
-            'fk_account_type_id' => 1,
+            'account_type' => 1,
             'password' => Hash::make('1234'),
-            'dateCreated' => now()
         ]);
 
         User::create([
             'id' => 2,
+            'name' => 'Chira',
             'email' => 'chira@gmail.com',
-            'fk_account_type_id' => 2,
+            'account_type' => 2,
             'password' => Hash::make("asdasd"),
-            'dateCreated' => now()
         ]);
 
         User::create([
             'id' => 3,
+            'name' => 'Razu',
             'email' => 'chirazu@gmail.com',
-            'fk_account_type_id' => 3,
+            'account_type' => 3,
             'password' => Hash::make("asdasd"),
-            'dateCreated' => now()
         ]);
 
         User::factory(5)->create();

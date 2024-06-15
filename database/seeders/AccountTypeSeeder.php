@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\AccountType;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -15,12 +16,8 @@ class AccountTypeSeeder extends Seeder
      */
     public function run()
     {
-        $acc_type = [
-            ['type' => 'Admin', 'id' => 1, 'dateAdded' => now()],
-            ['type' => 'Pet Shop', 'id' => 2, 'dateAdded' => now()],
-            ['type' => 'User', 'id' => 3, 'dateAdded' => now()]
-        ];
-
-        DB::table('account_type')->insert($acc_type);
+        AccountType::create(['name' => 'Admin', 'id' => 1]);
+        AccountType::create(['name' => 'Pet Shop', 'id' => 2]);
+        AccountType::create(['name' => 'User', 'id' => 3]);
     }
 }

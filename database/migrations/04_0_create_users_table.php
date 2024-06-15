@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
-            $table->integer('account_type');
+            $table->foreignId('account_type')->default(3)->constrained('account_type')->onDelete('cascade');
             $table->string('password');
             $table->string('name');
             $table->string('phone')->nullable();

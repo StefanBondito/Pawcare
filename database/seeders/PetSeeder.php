@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Pet;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -15,15 +16,15 @@ class PetSeeder extends Seeder
      */
     public function run()
     {
-        $pets = [
-            ['name' => 'Choco',
+
+
+        Pet::create([
+            'name' => 'Choco',
             'type' => 'Dog',
             'breed' => 'Rottweiler',
             'dateOfBirth' => '2022-05-24',
             'age' => 2,
-            ]
-        ];
-        
-        DB::table('pet')->insert($pets);
+            'user_id' => 3,
+        ]);
     }
 }

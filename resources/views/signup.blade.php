@@ -53,11 +53,23 @@
 <form action="/signup" method="post">
     @csrf
 
-    <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+    <div class="text-center">
+        <img class="mb-4" src="/storage/images/assets/Logo.png" alt="" width="100">
+    </div>
     <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
 
     <div class="form-floating">
-      <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" autofocus required value="{{old('email')}}">
+      <input type="name" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Name" autofocus required value="{{old('name')}}">
+      <label for="name">Name</label>
+      @error('name')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+      @enderror
+    </div>
+
+    <div class="form-floating">
+      <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" required value="{{old('email')}}">
       <label for="email">Email address</label>
       @error('email')
         <div class="invalid-feedback">
@@ -66,7 +78,7 @@
       @enderror
     </div>
     <div class="form-floating">
-      <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password" required value="{{old('password')}}">
+      <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password" required>
       <label for="password">Password</label>
       @error('password')
         <div class="invalid-feedback">
@@ -75,12 +87,12 @@
       @enderror
     </div>
     <div class="form-floating">
-      <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Confirm Password" required value="{{old('password_confirmation')}}">
+      <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Confirm Password" required>
       <label for="password_confirmation">Confirm Password</label>
     </div>
     <button class="btn btn-primary w-100 py-2" type="submit">Sign Up</button>
     <p style="text-align: center" class="mt-3 mb-3 text-body-secondary">
-        Already have an account? <a href="\login">Login</a>
+        Already have an account? <a href="/login">Login</a>
     </p>
     <p class="mt-5 mb-3 text-body-secondary">© 2024 - The day I fucking die</p>
   </form>

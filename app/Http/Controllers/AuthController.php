@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use App\Models\AccountType;
 use App\Models\User;
 use Session;
 use Illuminate\Support\Facades\{Auth, Hash};
 use Illuminate\Http\Request;
 
-class AccountController extends Controller
+class AuthController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +20,11 @@ class AccountController extends Controller
     {
         $user = Auth::user(); // gets the current user info
         if($user){ // check if user is logged in
-            return redirect('home_user')->with('user', $user); // if user
+            return view('home_user')->with('user', $user); // if user
         }
         else{
             $user = 'Guest';
-            return redirect('home')->with('user', $user); // if guest
+            return view('home')->with('user', $user); // if guest
         }
     }
 
@@ -54,13 +55,15 @@ class AccountController extends Controller
         if(Auth::guard('web')->attempt($credentials, $remember)){ // attempt to check credentials on User
             $request->session()->regenerate();
             $user = Auth::user();
-            switch ($user->fk_account_type_id) {
+            // $type = AccountType::find($user->account_type);
+            // dd($type);
+            switch ($user->account_type) {
                 case 1:
                     return redirect()->intended('home_admin'); //nothing yet
                 case 2:
                     return redirect()->intended('home_petshop'); //nothing yet
                 case 3:
-                    return redirect()->intended('home_user');
+                    return redirect()->intended('home_user')->with('user', $user);
                 default:
                     return redirect()->intended('/');
             }
@@ -85,7 +88,7 @@ class AccountController extends Controller
                 'name' => $validated['name'],
                 'email' => $validated['email'],
                 'password' => $validated['password'],
-                'dateCreated' => now(),
+                'account_type' => 3
             ]);
             return redirect('login')->with('success', 'Account succesfully created.');
         }
