@@ -10,14 +10,15 @@ class Pet extends Model
     use HasFactory;
     protected $table = 'pet';
     protected $primaryKey = 'id';
-    protected $timestamp = 'true';
+    // protected $timestamps = 'true';
     protected $guarded = [];
     protected $fillable = [
         'name',
         'type',
         'breed',
         'dateOfBirth',
-        'age'
+        'age',
+        'user_id'
     ];
 
     public function user(){
