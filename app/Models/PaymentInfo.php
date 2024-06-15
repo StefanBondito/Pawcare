@@ -12,12 +12,11 @@ class PaymentInfo extends Model
     protected $primaryKey = 'id';
     protected $timestamp = 'true';
     protected $guarded = [];
+    protected $fillable = [
+        'account_number'
+    ];
 
     public function user(){
         return $this->belongsTo(User::class);
-    }
-
-    public function paymentCompany(){
-        return $this->belongsTo(PaymentCompany::class);
     }
 }

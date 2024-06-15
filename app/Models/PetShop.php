@@ -8,13 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class PetShop extends Model
 {
     use HasFactory;
-    protected $table = 'pet_shop_user';
+    protected $table = 'pet_shop';
     protected $primaryKey = 'id';
     protected $timestamp = 'true';
     protected $guarded = [];
+    protected $fillable = [
+        'shop_name',
+        'address'
+    ];
 
-    public function shoppingCart(){
-        return $this->hasMany(ShoppingCart::class);
+    public function sell(){
+        return $this->hasMany(Item::class);
     }
 
     public function shopContact(){
@@ -22,6 +26,6 @@ class PetShop extends Model
     }
 
     public function account(){
-        return $this->belongsTo(Account::class);
+        return $this->belongsTo(User::class);
     }
 }

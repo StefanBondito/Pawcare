@@ -13,8 +13,8 @@ class ShoppingCartContent extends Model
     protected $timestamp = 'true';
     protected $guarded = [];
 
-    public function shoppingCart(){
-        return $this->belongsTo(shoppingCart::class);
+    public function add(){
+        return $this->belongsTo(ShoppingCart::class);
     }
 
     public function item(){

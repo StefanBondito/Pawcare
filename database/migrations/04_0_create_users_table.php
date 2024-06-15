@@ -13,13 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('accounts', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
-            $table->unsignedBigInteger('fk_account_type_id');
+            $table->foreignId('account_type')->default(3)->constrained('account_type')->onDelete('cascade');
             $table->string('password');
-            $table->timestamp('dateCreated');
-            $table->rememberToken();
+            $table->string('name');
+            $table->string('phone')->nullable();
+            $table->text('address')->nullable();
+            $table->timestamps();
+
+            // Constraint Key Definitions
         });
     }
 

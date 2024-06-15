@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('payment_infos', function (Blueprint $table) {
-            $table->id();
-            $table->string("payment_method");
+        Schema::create('pet_shop', function (Blueprint $table) {
+            $table->id('id');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->text('address');
+            $table->string('shop_name');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payment_infos');
+        Schema::dropIfExists('pet_shop');
     }
 };

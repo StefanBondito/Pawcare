@@ -17,8 +17,11 @@
               <li><a href="#" class="nav-link px-2">Clinic</a></li>
             </ul>
 
-            <div class="col-md-3 text-end">
-                <h6>Welcome, {{ $user->name }}!</h6>
+            <div class="col-md-3 mb-md-0 text-end">
+              <a href="/logout" class="d-inline-flex link-body-emphasis">
+                <h5>Logout</h5>
+              </a>
+              <h5>Welcome, {{ $user->name }}!</h5>
             </div>
           </header>
         </div>

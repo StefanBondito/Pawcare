@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ShopContactInfo;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +18,7 @@ class ShopContactInfoSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('id_ID');
-        DB::table('shop_contact_infos')->insert([
+        ShopContactInfo::create([
             'id' => $faker->unique()->numberBetween(1, 99),
             'shop_phone' => $faker->phoneNumber(),
             'shop_email' => $faker->userName.'@gmail.com',

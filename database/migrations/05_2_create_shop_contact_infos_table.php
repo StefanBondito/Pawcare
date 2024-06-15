@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('shop_contact_infos', function (Blueprint $table) {
+        Schema::create('shop_contact', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string("shop_phone");
             $table->string("shop_email");
-            $table->string("shop_twitter");
-            $table->string("shop_instagram");
-            $table->string("shop_facebook");
+            $table->string("shop_twitter")->nullable();
+            $table->string("shop_instagram")->nullable();
+            $table->string("shop_facebook")->nullable();
+            $table->timestamps();
         });
     }
 

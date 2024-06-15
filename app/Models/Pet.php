@@ -12,6 +12,13 @@ class Pet extends Model
     protected $primaryKey = 'id';
     protected $timestamp = 'true';
     protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'type',
+        'breed',
+        'dateOfBirth',
+        'age'
+    ];
 
     public function user(){
         return $this->belongsTo(User::class);
