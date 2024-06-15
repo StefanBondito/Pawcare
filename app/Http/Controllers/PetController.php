@@ -63,7 +63,6 @@ class PetController extends Controller
         ]);
 
         return redirect('pets')->with('success', 'Pet added successfully.');
-        return redirect('pets')->with('success', 'Pet added successfully.');
     }
 
     public function show(Pet $pet)
@@ -80,7 +79,7 @@ class PetController extends Controller
     }
 
 
-    public function update(UpdatePetRequest $request, Pet $pet)
+    public function update(Request $request, Pet $pet)
     {
         $request->validate([
             'name'=>'required|string',
@@ -95,8 +94,7 @@ class PetController extends Controller
             'type' => $request->type,
             'breed' => $request->breed,
             'dateOfBirth' => $request->dateOfBirth,
-            'age' => $request->age,
-            'user_id' => $user->id,
+            'age' => $request->age
         ]);
 
         return redirect('pets')->with('success', 'Pet updated successfully.');

@@ -6,6 +6,7 @@ use App\Models\Item;
 use App\Models\ItemType;
 use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
+use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
@@ -30,7 +31,7 @@ class ItemController extends Controller
         ]);
     }
 
-    public function store(StoreItemRequest $request)
+    public function store(Request $request)
     {
         $request->validate([
             'name'=>'required|string',
@@ -42,7 +43,6 @@ class ItemController extends Controller
             'name' => $request->name,
             'type' => $request->type,
             'price' => $request->price,
-
         ]);
 
         return redirect()->route('items.index')->with('success', true);
