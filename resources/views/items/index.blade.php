@@ -1,7 +1,7 @@
 <x-guestUser title="Shop" :user="$user">
 <div class="container">
     <h1 class="text-gradient display-4 fw-bold text-uppercase text-center"> Our Items</h1>
-    {{-- <div class="divider mb-4"></div> --}}
+    <div class="divider mb-4 text-center"></div>
     @foreach ($items as $item)
     <div class="feature col card mx-4 card-home">
         <div class="card-body text-center">

@@ -7,16 +7,15 @@
         <div class="col-lg-6 mx-auto">
             <h2 class="lead mb-4 subtitle-gradient">Pawcare does not bluff, we make a deal</h2>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <a href="{{ route('pets.create') }}">
-                    <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Book Now!</button>
-                </a>
+                    <button type="button" id='scrollButton' class="btn btn-primary btn-lg px-4 gap-3">Come Check Us</button>
+
             </div>
         </div>
     </div>
 </div>
 
 {{-- OUR FEATURES --}}
-<div class="px-2 py-2">
+<div class="px-2 py-2" id='features-home'>
     <h2 class="pb-2 border-bottom text-center text-gradient">What do We Offer at Pawcare?</h2>
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 d-flex align-items-center justify-content-center">
 
@@ -40,7 +39,7 @@
             </div>
         </div>
         <div class="card-body text-center">
-            <h3 class="fs-2 text-body-emphasis text-gradient text-center">Shopping</h3>
+            <h3 class="fs-2 text-body-emphasis text-gradient text-center">Shop</h3>
             <p>Don't have time to resupply and stock up? Come and see what our product catalogue has to offer </p>
             <a href="#" class="btn btn-success">Shop Now!</a>
         </div>
@@ -88,3 +87,9 @@
     </div>
 </div>
 </x-guest>
+
+<script>
+    document.getElementById('scrollButton').addEventListener('click', function(){
+        document.getElementById('features-home').scrollIntoView({behavior: 'smooth'});
+    });
+</script>

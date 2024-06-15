@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             AccountTypeSeeder::class,
             ItemTypeSeeder::class,
             UserSeeder::class,
-            PetShopUserSeeder::class,
+            PetShopSeeder::class,
             ItemSeeder::class,
             PetSeeder::class,
             ShopContactInfoSeeder::class,
