@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('breed');
             $table->string('dateOfBirth');
             $table->integer('age');
-
+            
         });
     }
 

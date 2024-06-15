@@ -15,6 +15,7 @@ class PetController extends Controller
 
     public function index()
     {
+        // $pets = Pet::join()
         return view('pets.index', [
             'pets'=>Pet::all(),
         ]);
