@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ShopContactInfo extends Model
 {
     use HasFactory;
-    protected $table = 'shop_contact_infos';
+    protected $table = 'shop_contact';
     protected $primaryKey = 'id';
     protected $timestamp = 'true';
     protected $guarded = [];

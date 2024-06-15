@@ -4,16 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\PaymentInfo;
 
-class Admin extends Model
+class banks extends Model
 {
     use HasFactory;
-    protected $table = 'admins';
+    protected $table = 'bank';
     protected $primaryKey = 'id';
     protected $timestamp = 'true';
     protected $guarded = [];
-
-    public function account(){
-        return $this->belongsTo(Account::class);
+    public function buy()
+    {
+        return $this->hasMany(PaymentInfo::class);
     }
 }

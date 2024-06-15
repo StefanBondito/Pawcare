@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pet', function (Blueprint $table) {
-
-            $table->id('id');
+        Schema::create('bank', function (Blueprint $table){
+            $table->id();
+            $table->string('bank_name');
+            $table->string('logo');
             $table->timestamps();
-            $table->string('name');
-            $table->string('type');
-            $table->string('breed');
-            $table->string('dateOfBirth');
-            $table->integer('age');
-
         });
     }
 
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pets');
+        //
     }
 };

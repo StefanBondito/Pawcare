@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('name');
-            $table->integer('fk_account_id');
-            $table->timestamp('dateCreated');
+        Schema::create('payment_infos', function (Blueprint $table) {
+            $table->id();
+            $table->string("payment_method");
+            $table->string('account_number');
+            $table->integer('bank_id')->nullable();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('payment_infos');
     }
 };

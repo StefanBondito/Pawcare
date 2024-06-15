@@ -13,15 +13,7 @@ class ShoppingCart extends Model
     protected $timestamp = 'true';
     protected $guarded = [];
 
-    public function shoppingCartContent(){
-        return $this->hasOne(ShoppingCartContent::class);
-    }
-
-    public function shippingCompany(){
-        return $this->hasOne(ShippingCompany::class);
-    }
-
-    public function petShop(){
-        return $this->belongsTo(PetShop::class);
+    public function content(){
+        return $this->hasMany(ShoppingCartContent::class);
     }
 }
