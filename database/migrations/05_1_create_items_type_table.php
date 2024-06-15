@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pet', function (Blueprint $table) {
-            $table->id('id');
+        Schema::create('item_type', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
-            $table->string('type');
-            $table->string('breed')->default("Unknown");
-            $table->foreignId('user_id')->default(null)->constrained('users')->onDelete('cascade');
-            $table->date('dateOfBirth');
-            $table->integer('age');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pets');
+        Schema::dropIfExists('item_type');
     }
 };

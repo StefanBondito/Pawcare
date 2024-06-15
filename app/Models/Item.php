@@ -13,10 +13,15 @@ class Item extends Model
     protected $primaryKey = 'id';
     protected $timestamp = 'true';
     protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'type_id',
+        'price',
+    ];
 
     public function sell()
     {
-        return $this->belongsTo(PetShop::class);
+        return $this->belongsTo(ItemType::class);
     }
 
     public function buy()

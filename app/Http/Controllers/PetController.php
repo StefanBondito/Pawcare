@@ -19,7 +19,15 @@ class PetController extends Controller
 
     public function index()
     {
-        return view('pets.index', ['pets' => Pet::find(Auth::user()->id), 'user' => Auth::user()]);
+        $user = Auth::user()->with('pet')->find(Auth::id());
+        $pets = $user->pet;
+        // dd($pets);
+        if($pets){
+            return view('pets.index')->with(['pets' => $pets, 'user' => Auth::user()]);
+        }
+        else{
+            return view('pets.index')->with(['pets' => null, 'user' => Auth::user()]);
+        }
     }
 
     public function manage(){
@@ -43,6 +51,8 @@ class PetController extends Controller
             'dateOfBirth'=>'required|string',
             'age'=>'required|numeric',
         ]);
+        $request->user_id = $user->id;
+        // $request->save();
         // dd($user);
         Pet::create([
             'name' => $request->name,
@@ -50,10 +60,10 @@ class PetController extends Controller
             'breed' => $request->breed,
             'dateOfBirth' => $request->dateOfBirth,
             'age' => $request->age,
-            'user_id' => $user->id,
+            'user_id' => $request->user_id,
         ]);
 
-        return redirect()->route('pets.index')->with('success', 'Pet added successfully.');
+        return redirect('pets')->with('success', 'Pet added successfully.');
     }
 
     public function show(Pet $pet)

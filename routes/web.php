@@ -33,8 +33,8 @@ Route::controller(PetController::class)->prefix('pets')->name('pets.')->group(fu
 
 Route::middleware('auth')->group(function () {
     Route::resource('/pets', PetController::class);
-    Route::get('/pets', [PetController::Class, 'index']);
-    Route::post('/store', [PetController::class, 'store'])->name('pets.store');
+    Route::get('/pets', [PetController::Class, 'index'])->name('pets.index');
+    Route::post('/pets', [PetController::class, 'store'])->name('pets.store');
 });
 
 

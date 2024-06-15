@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
+use App\Models\ItemType;
 use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
 
@@ -13,6 +14,7 @@ class ItemController extends Controller
         return view("items.index", [
             "items" => Item::all(),
             'user' => Auth::user(),
+            "type" => ItemType::all()->keyBy('id')
         ]);
     }
 

@@ -17,7 +17,6 @@ class PetSeeder extends Seeder
     public function run()
     {
 
-
         Pet::create([
             'name' => 'Choco',
             'type' => 'Dog',
