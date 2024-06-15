@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             AccountTypeSeeder::class,
+            ItemTypeSeeder::class,
             UserSeeder::class,
             PetShopSeeder::class,
             ItemSeeder::class,

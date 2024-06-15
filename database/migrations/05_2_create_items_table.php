@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('price');
-            $table->string('type');
-            $table->foreignId('shop_id')->constrained('pet_shop')->onDelete('cascade');
+            $table->foreignId('type_id')->default(null)->constraint('item_type')->onDelete('cascade');
             $table->string('logo')->nullable();
             $table->timestamps();
         });

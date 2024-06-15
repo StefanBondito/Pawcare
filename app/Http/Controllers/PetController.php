@@ -49,6 +49,9 @@ class PetController extends Controller
             'dateOfBirth'=>'required|string',
             'age'=>'required|numeric',
         ]);
+        $request->user_id = $user->id;
+        // $request->save();
+        // dd($user);
         // dd($user->id);
         Pet::create([
             'name' => $request->name,
@@ -56,9 +59,10 @@ class PetController extends Controller
             'breed' => $request->breed,
             'dateOfBirth' => $request->dateOfBirth,
             'age' => $request->age,
-            'user_id' => $user->id,
+            'user_id' => $request->user_id,
         ]);
 
+        return redirect('pets')->with('success', 'Pet added successfully.');
         return redirect('pets')->with('success', 'Pet added successfully.');
     }
 

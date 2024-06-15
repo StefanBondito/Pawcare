@@ -20,8 +20,7 @@ class ItemSeeder extends Seeder
         DB::table('item')->insert([
             'name' => "Dog Cologne",
             'price' => 20,
-            'type' => "Cologne",
-            'shop_id' => 1,
+            'type_id' => 1
         ]);
     }
 }
