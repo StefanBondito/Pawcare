@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('price');
             $table->string('type');
             $table->foreignId('shop_id')->constrained('pet_shop')->onDelete('cascade');
-            $table->string('logo');
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }

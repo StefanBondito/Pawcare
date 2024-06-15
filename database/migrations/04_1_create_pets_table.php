@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('type');
             $table->string('breed')->default("Unknown");
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('user_id')->default(null)->constrained('users')->onDelete('cascade');
             $table->date('dateOfBirth');
             $table->integer('age');
             $table->timestamps();

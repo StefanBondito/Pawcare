@@ -36,7 +36,7 @@
 
                 <div class="form-group mb-3">
                     <label for='pet_dob'>Pet Date of Birth</label>
-                    <input type="text" class="form-control" name="dateOfBirth" id='dateOfBirth' placeholder='Ex. DD-MM-YYYY' value="{{ old('dateOfBirth') }}" required>
+                    <input type="text" class="form-control" name="dateOfBirth" id='dateOfBirth' placeholder='Ex. YYYY-MM-DD' value="{{ old('dateOfBirth') }}" required>
                     @if ($errors->has('breed'))
                         <span class="invalid feedback text-danger"role="alert">
                             <strong>*{{ $errors->first('dateOfBirth') }}.</strong>

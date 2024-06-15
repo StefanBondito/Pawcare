@@ -6,7 +6,8 @@ $lightBlue: #79b0b2;
 .container-home{
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0,0,0,0.9)), url('/public/storage/images/assets/petshop-wallpaper.jpg');
     background-size: cover;
-    height: 400px;
+    height: 600px;
+    padding-top: 50px;
     // margin-bottom: 40px;
 }
 
@@ -108,7 +109,16 @@ $lightBlue: #79b0b2;
     margin-bottom: .5rem;
 }
 
-// SIDEBAR NAV
+.nav-text{
+    margin:0px;
+}
+
+.text-button{
+    font-family: 'Courier New', Courier, sans-serif;
+
+}
+
+// SIDEBAR NAVIGATION
 .fixed-top,
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav,
 .sb-nav-fixed .sb-topnav {

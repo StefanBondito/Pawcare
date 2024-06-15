@@ -11,15 +11,18 @@ use App\Http\Requests\UpdatePetRequest;
 
 class PetController extends Controller
 {
-    // public function __construct(){
-    //     $this->middleware('auth');
-    //     $user = Auth::user();
-    //     return dd($user);
-    // }
 
     public function index()
     {
-        return view('pets.index', ['pets' => Pet::find(Auth::user()->id), 'user' => Auth::user()]);
+        $user = Auth::user()->with('pet')->find(Auth::id());
+        $pets = $user->pet;
+        // dd($pets);
+        if($pets){
+            return view('pets.index')->with(['pets' => $pets, 'user' => Auth::user()]);
+        }
+        else{
+            return view('pets.index')->with(['pets' => null, 'user' => Auth::user()]);
+        }
     }
 
     public function manage(){
@@ -30,7 +33,10 @@ class PetController extends Controller
     public function create()
     {
         $user = Auth::user();
-        return view('pets.create', ['user' => $user]);
+        return view('pets.create', [
+            'user' => $user,
+
+        ]);
     }
 
     public function store(Request $request)
@@ -43,7 +49,7 @@ class PetController extends Controller
             'dateOfBirth'=>'required|string',
             'age'=>'required|numeric',
         ]);
-        // dd($user);
+        // dd($user->id);
         Pet::create([
             'name' => $request->name,
             'type' => $request->type,
@@ -53,7 +59,7 @@ class PetController extends Controller
             'user_id' => $user->id,
         ]);
 
-        return redirect()->route('pets.index')->with('success', 'Pet added successfully.');
+        return redirect('pets')->with('success', 'Pet added successfully.');
     }
 
     public function show(Pet $pet)
@@ -61,27 +67,35 @@ class PetController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Pet  $pet
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Pet $pet)
     {
-        //
+        $user = Auth::user();
+        return view('pets.create', [
+            'user' => $user,
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePetRequest  $request
-     * @param  \App\Models\Pet  $pet
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(UpdatePetRequest $request, Pet $pet)
     {
-        //
+        $request->validate([
+            'name'=>'required|string',
+            'type'=>'required|string',
+            'breed'=>'required|string',
+            'dateOfBirth'=>'required|string',
+            'age'=>'required|numeric',
+        ]);
+
+        $pet->update([
+            'name' => $request->name,
+            'type' => $request->type,
+            'breed' => $request->breed,
+            'dateOfBirth' => $request->dateOfBirth,
+            'age' => $request->age,
+            'user_id' => $user->id,
+        ]);
+
+        return redirect('pets')->with('success', 'Pet updated successfully.');
     }
 
     /**
