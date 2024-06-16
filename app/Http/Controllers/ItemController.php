@@ -26,9 +26,18 @@ class ItemController extends Controller
     }
     public function create()
     {
-        return view('items.create', [
-            'user' => Auth::user(),
-        ]);
+        $user = Auth::user();
+        // dd($user->account_type);
+        if($user->account_type == 1){
+            return view('items.create', [
+                'user' => Auth::user(),
+            ]);
+        }
+        else{
+            return redirect('home')->with([
+                'user' => Auth::user(),
+            ]);
+        }
     }
 
     public function store(Request $request)

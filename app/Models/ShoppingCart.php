@@ -14,6 +14,13 @@ class ShoppingCart extends Model
     protected $guarded = [];
 
     public function content(){
-        return $this->hasMany(ShoppingCartContent::class);
+        return $this->hasMany(ShoppingCartContent::class, 'cart_id');
+    }
+    public function owner(){
+        return $this->belongsTo(User::class);
+    }
+    public function receiver_user()
+    {
+        return $this->belongsTo(User::class, 'receiver');
     }
 }

@@ -30,6 +30,8 @@ class DatabaseSeeder extends Seeder
             ItemSeeder::class,
             PetSeeder::class,
             ShopContactInfoSeeder::class,
+            ShopCartSeeder::class,
+            ShopContentSeeder::class,
         ]);
     }
 }

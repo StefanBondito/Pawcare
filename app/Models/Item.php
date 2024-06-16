@@ -19,13 +19,13 @@ class Item extends Model
         'price',
     ];
 
-    public function sell()
+    public function type()
     {
         return $this->belongsTo(ItemType::class);
     }
 
-    public function buy()
+    public function insert()
     {
-        return $this->hasMany(ShoppingCartContent::class);
+        return $this->hasMany(ShoppingCartContent::class, 'item_id');
     }
 }

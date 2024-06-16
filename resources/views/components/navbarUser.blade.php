@@ -8,7 +8,7 @@
                 <img src="/storage/images/assets/Logo.png" alt="" height="30">
               </a>
               <div class="col">
-                  <a href="/cart" class="btn btn-primary mb-2">
+                  <a href="{{ route('cart.index') }}" class="btn btn-primary mb-2">
                       <h6 class="nav-text">Cart</h6>
                   </a>
               </div>

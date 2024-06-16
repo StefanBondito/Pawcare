@@ -56,4 +56,7 @@ class User extends Authenticatable
     public function type(){
         return $this->belongsTo(AccountType::class);
     }
+    public function cart(){
+        return $this->hasOne(ShoppingCart::class);
+    }
 }

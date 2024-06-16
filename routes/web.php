@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ShoppingCartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\ItemController;
@@ -35,6 +36,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('pets', PetController::class);
     Route::get('/pets', [PetController::Class, 'index'])->name('pets.index');
     Route::post('/store', [PetController::class, 'store'])->name('pets.store');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::resource('cart', ShoppingCartController::class);
+    Route::get('/cart', [ShoppingCartController::Class, 'index'])->name('cart.index');
+    Route::post('/cart/store', [ShoppingCartController::Class, 'store'])->name('cart.save');
 });
 
 

@@ -6,6 +6,8 @@ use App\Models\ShoppingCart;
 use App\Http\Requests\StoreShoppingCartRequest;
 use App\Http\Requests\UpdateShoppingCartRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Models\ItemType;
+use Illuminate\Http\Request;
 
 
 class ShoppingCartController extends Controller
@@ -13,18 +15,18 @@ class ShoppingCartController extends Controller
 
     public function index()
     {
-        $user = Auth::user()->with('shopping_carts')->find(Auth::id());
-        $cart = $user->shopping_carts;
-        if ($cart->isEmpty()) {
-            $content_collection = collect(); // Empty collection
-        } else {
-            $content_collection = $cart->contents;
-        }
+        $user = Auth::user()->load(['cart.content.item.type']);
+        // dd($user->cart);
+        $cart = $user->cart;
+        $items = Item::all();
+        $types = ItemType::all();
 
-        return view('cart.index', [
-            'items'=> Item::all(),
+        return view('cart.index')->with([
+            'items'=> $items,
             'cart'=> $cart,
-            'contents' => $content_collection,
+            'contents' => $cart->content,
+            'itemType' => $types,
+            'user' => $user
         ]);
     }
 
@@ -44,7 +46,7 @@ class ShoppingCartController extends Controller
      * @param  \App\Http\Requests\StoreShoppingCartRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreShoppingCartRequest $request)
+    public function store(Request $request)
     {
         //
     }
