@@ -7,7 +7,6 @@ use App\Models\ItemType;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
-use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {

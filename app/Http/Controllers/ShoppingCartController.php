@@ -15,7 +15,7 @@ class ShoppingCartController extends Controller
 
     public function index()
     {
-        $user = Auth::user()->load(['cart.content.item.type']);
+        $user = Auth::user()->load(['cart.content.item.itemType']);
         // dd($user->cart);
         $cart = $user->cart;
         $items = Item::all();

@@ -19,7 +19,26 @@ class AuthController extends Controller
     public function homeGet() // home page
     {
         $user = Auth::user(); // gets the current user info
-        if($user){ // check if user is logged in
+
+        if($user){
+            if($user->account_type == 3){ // check if user is logged in
+                return view('home_user')->with('user', $user); // if user
+            }
+            elseif($user->account_type == 1){ // check if user is admin
+                return view('dashboard')->with('user', $user); // if admin
+            }
+        }
+        else{
+            $user = 'Guest';
+            return view('home')->with('user', $user); // if guest
+        }
+    }
+
+    public function admin_homeGet() // home page
+    {
+        $user = Auth::user(); // gets the current user info
+
+        if($user){
             return view('home_user')->with('user', $user); // if user
         }
         else{
@@ -59,7 +78,7 @@ class AuthController extends Controller
             // dd($type);
             switch ($user->account_type) {
                 case 1:
-                    return redirect()->intended('home_admin'); //nothing yet
+                    return redirect()->intended('dashboard'); //nothing yet
                 case 2:
                     return redirect()->intended('home_petshop'); //nothing yet
                 case 3:
