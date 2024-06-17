@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 use App\Models\ItemType;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
 
@@ -14,38 +15,44 @@ class ItemController extends Controller
         return view("items.index", [
             "items" => Item::all(),
             'user' => Auth::user(),
-            "type" => ItemType::all()->keyBy('id')
         ]);
     }
 
     public function manage(){
         return view("items.manage", [
-            "items"=>Item::all()
+            "items"=>Item::with('itemType')->all()->get(),
         ]);
     }
     public function create()
     {
-        return view('items.create', [
-            'user' => Auth::user(),
-        ]);
+        $user = Auth::user();
+        if($user->account_type == 1){
+            return view('items.create', [
+                'user' => Auth::user(),
+                "itemTypes" => ItemType::orderBy('id')->get(),
+            ]);
+        }
+        else{
+            return redirect()->route('items.index')->with('error', 'You do not have access');
+        }
     }
 
-    public function store(StoreItemRequest $request)
+    public function store(Request $request)
     {
         $request->validate([
             'name'=>'required|string',
-            'type'=>'required|string',
+            'item_type'=>'required|string',
             'price'=>'required|numeric',
         ]);
 
         Item::create([
             'name' => $request->name,
-            'type' => $request->type,
+            'type_id' => $request->item_type,
             'price' => $request->price,
 
         ]);
 
-        return redirect()->route('items.index')->with('success', true);
+        return redirect()->route('items.index')->with('success', 'Item has been added to list');
     }
 
     public function show(Item $item)
@@ -53,37 +60,43 @@ class ItemController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Item $item)
     {
-        //
+        $user = Auth::user();
+        if($user->account_type == 1){
+            return view('items.edit', [
+                'user' => Auth::user(),
+                'itemTypes' => ItemType::orderBy('id')->get(),
+                'item'=>$item,
+            ]);
+        }
+        else{
+            return redirect()->route('items.index')->with('error', 'You do not have access');
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateItemRequest  $request
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateItemRequest $request, Item $item)
+    public function update(Request $request, Item $item)
     {
-        //
+        $user = Auth::user()->account_type == 1;
+        $request->validate([
+            'name'=>'required|string',
+            'item_type'=>'required|string',
+            'price'=>'required|numeric',
+        ]);
+
+        $item->update([
+            'name' => $request->name,
+            'type_id' => $request->item_type,
+            'price' => $request->price,
+
+        ]);
+
+        return redirect()->route('items.index')->with('success', 'Item has been added to list');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Item $item)
+    public function delete(Item $item)
     {
-        //
+        $item->delete();
+        return redirect('items.manage')->with('items', 'Item Data Deleted');
     }
 }
