@@ -61,7 +61,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/store', [ItemController::Class, 'store'])->name('items.store');
     Route::get('/items', [ItemController::Class, 'index'])->name('items.index');
     Route::post('items/{item}/update', [ItemController::Class, 'update'])->name('items.update');
-
 });
 
 

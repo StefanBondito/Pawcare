@@ -31,7 +31,7 @@ class AuthController extends Controller
             }
         }
         else{
-            return view('home'); // if guest
+            return view('home')->with('user', $user); // if guest
         }
     }
 
