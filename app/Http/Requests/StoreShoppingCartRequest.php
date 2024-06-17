@@ -24,7 +24,11 @@ class StoreShoppingCartRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'items' => 'required|array',
+            'items.*.id' => 'required|exists:items,id',
+            'items.*.quantity' => 'required|integer|min:1',
+            'total_items' => 'required|integer|min:1',
+            'total_price' => 'required|numeric|min:0',
         ];
     }
 }
