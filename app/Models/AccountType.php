@@ -16,7 +16,7 @@ class AccountType extends Model
     public const CUSTOMER_ID = 3;
     protected $guarded = [];
 
-    public function types(){
-        return $this->hasMany(User::class);
+    public function user(){
+        return $this->hasMany(User::class, 'account_type');
     }
 }

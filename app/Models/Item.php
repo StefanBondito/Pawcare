@@ -19,9 +19,9 @@ class Item extends Model
         'price',
     ];
 
-    public function itemType()
+    public function itemCategory()
     {
-        return $this->belongsTo(ItemType::class);
+        return $this->belongsTo(ItemType::class, 'type_id');
     }
 
     public function buy()

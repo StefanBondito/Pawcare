@@ -11,12 +11,12 @@ use App\Http\Controllers\UserController;
 Auth::routes();
 
 Route::get('/', [AuthController::class, 'homeGet']);
-Route::get('/home', [AuthController::class, 'homeGet']);
+Route::get('dashboard', [AuthController::class, 'homeGet'])->middleware('auth')->name('dashboard');
 Route::get('/home_user', [AuthController::class, 'homeGet'])->middleware('auth')->name('home');
 
-Route::get('dashboard', function(){
-    return view('dashboard');
-});
+// Route::get('dashboard', function(){
+//     return view('dashboard');
+// });
 
 // Route::get('/login', function(){ return view('login'); });
 
@@ -32,11 +32,13 @@ Route::controller(PetController::class)->prefix('pets')->name('pets.')->group(fu
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('pets/manage', [PetController::Class, 'manage'])->name('pets.manage');
     Route::resource('pets', PetController::class);
     Route::get('/pets', [PetController::Class, 'index'])->name('pets.index');
     Route::post('/store', [PetController::Class, 'store'])->name('pets.store');
     Route::post('pets/{pet}/update', [PetController::Class, 'update'])->name('pets.update');
     Route::delete('pets/{pet}/delete', [PetController::Class, 'delete'])->name('pets.delete');
+
 });
 
 
@@ -45,6 +47,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('items/manage', [ItemController::Class, 'manage'])->name('items.manage');
     Route::resource('items', ItemController::class);
     Route::delete('items/{item}/delete', [ItemController::Class, 'delete'])->name('items.delete');
     Route::post('/store', [ItemController::Class, 'store'])->name('items.store');

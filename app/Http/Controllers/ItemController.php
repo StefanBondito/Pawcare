@@ -19,8 +19,12 @@ class ItemController extends Controller
     }
 
     public function manage(){
+        $admin = Auth::user()->with('accType')->find(Auth::user()->account_type); // gets the current user info
+        $type = $admin->accType;
         return view("items.manage", [
-            "items"=>Item::with('itemType')->all()->get(),
+            'admin' => $admin,
+            'type' =>$type,
+            "items"=>Item::all(),
         ]);
     }
     public function create()

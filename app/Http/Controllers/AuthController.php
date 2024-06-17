@@ -11,20 +11,25 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function homeGet() // home page
     {
-        $user = Auth::user(); // gets the current user info
-        if($user){ // check if user is logged in
-            return view('home_user')->with('user', $user); // if user
-        }
-        else{
-            $user = 'Guest';
-            return view('home')->with('user', $user); // if guest
+        $user = Auth::user()->with('accType')->find(Auth::user()->account_type); // gets the current user info
+        $type = $user->accType;
+        if($user){
+            if($user->account_type == 1){ // check if admin logged in
+                return view('dashboard', [
+                    'user'=>$user,
+                    'type'=>$type,
+
+                ]);
+            }
+            elseif ($user->account_type == 3) { // Check customer login
+                return view('home_user')->with('user', $user);
+            }
+            else{
+                $user = 'Guest';
+                return view('home')->with('user', $user); // if guest
+            }
         }
     }
 
@@ -59,7 +64,7 @@ class AuthController extends Controller
             // dd($type);
             switch ($user->account_type) {
                 case 1:
-                    return redirect()->intended('home_admin'); //nothing yet
+                    return redirect()->intended('dashboard'); //nothing yet
                 case 2:
                     return redirect()->intended('home_petshop'); //nothing yet
                 case 3:
@@ -96,7 +101,7 @@ class AuthController extends Controller
     public function logoutPost()
     {
         Session::flush();
-        
+
         Auth::logout();
 
         return redirect('login')->with('logout', 'Succesfully logged out.');

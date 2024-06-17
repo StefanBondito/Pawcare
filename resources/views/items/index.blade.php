@@ -12,7 +12,7 @@
                                     <div class="card-body text-center">
                                         <div class="card-title text-gradient"><h3>{{ $item->name }}</h3></div>
                                         <div class="card-text">{{ $item->price }}</div>
-                                        <div class="card-text">{{ $item->type_id }}</div>
+                                        <div class="card-text">{{ $item->itemCategory->name}}</div>
                                         <hr>
                                         <a href="#" title="Buy Now" class="btn btn-primary">
                                             Buy Now!
