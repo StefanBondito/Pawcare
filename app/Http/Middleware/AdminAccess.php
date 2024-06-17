@@ -25,6 +25,6 @@ class AdminAccess
         }
 
         // If not an admin, redirect to the home page or any other page
-        return redirect()->route('home')->with('user', $user);
+        return redirect('/');
     }
 }

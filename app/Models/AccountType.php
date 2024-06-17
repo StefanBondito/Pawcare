@@ -17,6 +17,6 @@ class AccountType extends Model
     protected $guarded = [];
 
     public function types(){
-        return $this->hasMany(User::class);
+        return $this->hasMany(User::class, 'account_type');
     }
 }
