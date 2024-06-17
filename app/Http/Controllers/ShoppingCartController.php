@@ -5,15 +5,28 @@ use App\Models\Item;
 use App\Models\ShoppingCart;
 use App\Http\Requests\StoreShoppingCartRequest;
 use App\Http\Requests\UpdateShoppingCartRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Models\ItemType;
+use Illuminate\Http\Request;
+
 
 class ShoppingCartController extends Controller
 {
 
     public function index()
     {
-        return view('cart.index', [
-            'items'=>Item::all(),
-            'carts'=>ShoppingCart::all(),
+        $user = Auth::user()->load(['cart.content.item.itemType']);
+        // dd($user->cart);
+        $cart = $user->cart;
+        $items = Item::all();
+        $types = ItemType::all();
+
+        return view('cart.index')->with([
+            'items'=> $items,
+            'cart'=> $cart,
+            'contents' => $cart->content,
+            'itemType' => $types,
+            'user' => $user
         ]);
     }
 
@@ -33,7 +46,7 @@ class ShoppingCartController extends Controller
      * @param  \App\Http\Requests\StoreShoppingCartRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreShoppingCartRequest $request)
+    public function store(Request $request)
     {
         //
     }

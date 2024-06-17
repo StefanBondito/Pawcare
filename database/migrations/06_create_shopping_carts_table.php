@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->integer("cart_total_items");
             $table->integer("cart_price");
-            $table->integer("sender")->nullable();
-            $table->integer("receiver")->nullable();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId("receiver")->nullable()->constrained('users');
             $table->timestamps();
         });
     }
