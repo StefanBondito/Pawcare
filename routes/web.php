@@ -35,7 +35,9 @@ Route::controller(PetController::class)->prefix('pets')->name('pets.')->group(fu
 Route::middleware('auth')->group(function () {
     Route::resource('pets', PetController::class);
     Route::get('/pets', [PetController::Class, 'index'])->name('pets.index');
-    Route::post('/store', [PetController::class, 'store'])->name('pets.store');
+    Route::post('/store', [PetController::Class, 'store'])->name('pets.store');
+    Route::post('pets/{pet}/update', [PetController::Class, 'update'])->name('pets.update');
+    Route::delete('pets/{pet}/delete', [PetController::Class, 'delete'])->name('pets.delete');
 });
 
 Route::middleware('auth')->group(function () {
@@ -45,16 +47,17 @@ Route::middleware('auth')->group(function () {
 });
 
 
-
 Route::middleware('auth')->group(function () {
-    Route::get('/logout', [AuthController::class, 'logoutPost'])->middleware('auth')->name('logout');
+    Route::get('/logout', [AuthController::Class, 'logoutPost'])->middleware('auth')->name('logout');
 });
 
 Route::middleware('auth')->group(function () {
     Route::resource('items', ItemController::class);
-    // Route::delete('{item}/delete', 'delete')->name('delete');
+    Route::delete('items/{item}/delete', [ItemController::Class, 'delete'])->name('items.delete');
     Route::post('/store', [ItemController::Class, 'store'])->name('items.store');
     Route::get('/items', [ItemController::Class, 'index'])->name('items.index');
+    Route::post('items/{item}/update', [ItemController::Class, 'update'])->name('items.update');
+
 });
 
 

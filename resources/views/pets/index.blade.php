@@ -13,9 +13,23 @@
                             <div class="col mb-4 d-flex justify-content-center align-items-center">
                                 <div class="card w-75 text-center">
                                     <div class="card-body text-center">
-                                        <div class="card-title">{{ $pet->name }}</div>
+                                        <div class="card-title text-gradient"><h3>{{ $pet->name }}</h3></div>
                                         <div class="card-text">{{ $pet->age }}</div>
+                                        <div class="card-text">{{ $pet->type }}</div>
                                         <div class="card-text">{{ $pet->breed }}</div>
+                                        <hr>
+                                        <div class="d-flex row mt-2 row-cols-2 row-cols-lg-4 align-items-center justify-content-center">
+                                            <div class="d-flex col mt-auto">
+                                                <a href="{{ route('pets.edit', $pet->id) }}" title="Edit" class="btn btn-primary">
+                                                    <i class="fa-solid fa-pencil"></i>
+                                                </a>
+                                            </div>
+                                            <div class="d-flex col mt-auto">
+                                                <a href="{{ route('pets.delete', $pet->id) }}" title="Delete" class="btn btn-danger">
+                                                    <i class="fa-solid fa-close"></i>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -23,7 +37,7 @@
                         </div>
                     @endforeach
                 @else
-                    <p class="text-center"> No Data</p>
+                    <p class="text-center">No Pets Found</p>
                     <a href="{{ route('pets.create') }}" class="btn btn-primary mb-3">
                         <i class="fas fa-plus me-2">Insert Your Pet Data</i>
                     </a>

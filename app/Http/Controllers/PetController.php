@@ -50,9 +50,6 @@ class PetController extends Controller
             'age'=>'required|numeric',
         ]);
         $request->user_id = $user->id;
-        // $request->save();
-        // dd($user);
-        // dd($user->id);
         Pet::create([
             'name' => $request->name,
             'type' => $request->type,
@@ -62,25 +59,26 @@ class PetController extends Controller
             'user_id' => $request->user_id,
         ]);
 
-        return redirect('pets')->with('success', 'Pet added successfully.');
+        return redirect('pets')->with('success', 'Pet Data Added Successfully.');
     }
 
     public function show(Pet $pet)
     {
-        //
+
     }
 
     public function edit(Pet $pet)
     {
         $user = Auth::user();
-        return view('pets.create', [
+        return view('pets.edit', [
             'user' => $user,
+            'pet' => $pet,
         ]);
     }
 
-
     public function update(Request $request, Pet $pet)
     {
+        $user = Auth::user();
         $request->validate([
             'name'=>'required|string',
             'type'=>'required|string',
@@ -88,26 +86,22 @@ class PetController extends Controller
             'dateOfBirth'=>'required|string',
             'age'=>'required|numeric',
         ]);
-
+        $request->user_id = $user->id;
         $pet->update([
             'name' => $request->name,
             'type' => $request->type,
             'breed' => $request->breed,
             'dateOfBirth' => $request->dateOfBirth,
-            'age' => $request->age
+            'age' => $request->age,
+            'user_id' => $request->user_id,
         ]);
 
-        return redirect('pets')->with('success', 'Pet updated successfully.');
+        return redirect('pets')->with('success', 'Pet Data Updated Successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Pet  $pet
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Pet $pet)
+    public function delete(Pet $pet)
     {
-        //
+        $pet->delete();
+        return redirect('pets.manage')->with('success', 'Pet Data Deleted Successfully');
     }
 }

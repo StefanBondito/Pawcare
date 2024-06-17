@@ -10,4 +10,10 @@ window.DataTable = DataTable;
 $(document).ready(function(){
     $("#dataTables").DataTable();
     $(".dataTables").DataTable();
+
+    $("#alert").modal();
+    $("#alert").modal("show");
 });
+
+var myModal = new bootstrap.Modal(document.getElementById("alert"));
+myModal.show();

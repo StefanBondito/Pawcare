@@ -19,7 +19,7 @@ class Item extends Model
         'price',
     ];
 
-    public function type()
+    public function itemType()
     {
         return $this->belongsTo(ItemType::class);
     }

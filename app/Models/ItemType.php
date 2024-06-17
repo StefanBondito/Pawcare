@@ -13,7 +13,7 @@ class ItemType extends Model
     protected $timestamp = 'true';
     protected $guarded = [];
 
-    public function types(){
+    public function item(){
         return $this->hasMany(Item::class);
     }
 }
