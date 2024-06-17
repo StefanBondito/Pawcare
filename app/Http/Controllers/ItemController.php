@@ -53,7 +53,6 @@ class ItemController extends Controller
             'name' => $request->name,
             'type_id' => $request->item_type,
             'price' => $request->price,
-
         ]);
 
         return redirect()->route('items.index')->with('success', 'Item has been added to list');

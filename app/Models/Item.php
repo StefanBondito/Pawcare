@@ -24,8 +24,8 @@ class Item extends Model
         return $this->belongsTo(ItemType::class, 'type_id');
     }
 
-    public function buy()
+    public function insert()
     {
-        return $this->hasMany(ShoppingCartContent::class);
+        return $this->hasMany(ShoppingCartContent::class, 'item_id');
     }
 }

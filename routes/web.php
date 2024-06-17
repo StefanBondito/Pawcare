@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ShoppingCartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\ItemController;
@@ -14,11 +15,15 @@ Route::get('/', [AuthController::class, 'homeGet']);
 Route::get('dashboard', [AuthController::class, 'homeGet'])->middleware('auth')->name('dashboard');
 Route::get('/home_user', [AuthController::class, 'homeGet'])->middleware('auth')->name('home');
 
-// Route::get('dashboard', function(){
-//     return view('dashboard');
-// });
 
-// Route::get('/login', function(){ return view('login'); });
+// Apply admin access middleware
+Route::middleware(['auth','admin.access'])->group(function () {
+    // Add all routes that should be accessible by admin
+    Route::get('/dashboard', [AuthController::class, 'homeGet'])->name('dashboard');
+    Route::get('/admin/home', [AuthController::class, 'admin_homeGet']);
+    Route::get('/admin/home_user', [AuthController::class, 'admin_homeGet'])->name('adminhome');
+    // Add more routes here
+});
 
 Route::middleware('auth.redirect')->group(function () {
     Route::get('/login',[AuthController::class, 'loginGet'])->name('login');
@@ -41,6 +46,12 @@ Route::middleware('auth')->group(function () {
 
 });
 
+Route::middleware('auth')->group(function () {
+    Route::resource('cart', ShoppingCartController::class);
+    Route::get('/cart', [ShoppingCartController::Class, 'index'])->name('cart.index');
+    Route::post('/cart/store', [ShoppingCartController::Class, 'store'])->name('cart.save');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [AuthController::Class, 'logoutPost'])->middleware('auth')->name('logout');
@@ -53,7 +64,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/store', [ItemController::Class, 'store'])->name('items.store');
     Route::get('/items', [ItemController::Class, 'index'])->name('items.index');
     Route::post('items/{item}/update', [ItemController::Class, 'update'])->name('items.update');
-
 });
 
 

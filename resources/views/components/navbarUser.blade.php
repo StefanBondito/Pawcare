@@ -7,6 +7,11 @@
               <a href="/home_user" class="d-inline-flex link-body-emphasis text-decoration-none">
                 <img src="/storage/images/assets/Logo.png" alt="" height="30">
               </a>
+              <div class="col">
+                  <a href="{{ route('cart.index') }}" class="btn btn-primary mb-2">
+                      <h6 class="nav-text">Cart</h6>
+                  </a>
+              </div>
             </div>
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">

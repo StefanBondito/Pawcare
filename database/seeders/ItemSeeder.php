@@ -22,5 +22,11 @@ class ItemSeeder extends Seeder
             'price' => 20,
             'type_id' => 1
         ]);
+
+        DB::table('item')->insert([
+            'name' => "Dog Euthanasia",
+            'price' => 100,
+            'type_id' => 2
+        ]);
     }
 }

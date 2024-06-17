@@ -13,23 +13,33 @@ class AuthController extends Controller
 {
     public function homeGet() // home page
     {
-        $user = Auth::user()->with('accType')->find(Auth::user()->account_type); // gets the current user info
-        $type = $user->accType;
+        $user = Auth::user();
         if($user){
-            if($user->account_type == 1){ // check if admin logged in
-                return view('dashboard', [
-                    'user'=>$user,
-                    'type'=>$type,
+            $user = Auth::user()->with('accType')->find(Auth::user()->account_type); // gets the current user info
+            $type = $user->accType;
+            if($user->account_type == 3){ // check if user is logged in
+                return view('home_user')->with('user', $user); // if user
+            }
+            elseif($user->account_type == 1){ // check if user is admin
+                // dd($user->accType);
+                return view('dashboard')->with(['user' => $user, 'type' => $type]); // if admin
+            }
+        }
+        else{
+            return view('home')->with('user', $user); // if guest
+        }
+    }
 
-                ]);
-            }
-            elseif ($user->account_type == 3) { // Check customer login
-                return view('home_user')->with('user', $user);
-            }
-            else{
-                $user = 'Guest';
-                return view('home')->with('user', $user); // if guest
-            }
+    public function admin_homeGet() // home page
+    {
+        $user = Auth::user(); // gets the current user info
+
+        if($user){
+            return view('home_user')->with('user', $user); // if user
+        }
+        else{
+            $user = 'Guest';
+            return view('home')->with('user', $user); // if guest
         }
     }
 
