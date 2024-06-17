@@ -18,19 +18,20 @@ class AuthController extends Controller
      */
     public function homeGet() // home page
     {
-        $user = Auth::user(); // gets the current user info
-
+        $user = Auth::user();
         if($user){
+            $user = Auth::user()->with('accType')->find(Auth::user()->account_type); // gets the current user info
+            $type = $user->accType;
             if($user->account_type == 3){ // check if user is logged in
                 return view('home_user')->with('user', $user); // if user
             }
             elseif($user->account_type == 1){ // check if user is admin
-                return view('dashboard')->with('user', $user); // if admin
+                // dd($user->accType);
+                return view('dashboard')->with(['user' => $user, 'type' => $type]); // if admin
             }
         }
         else{
-            $user = 'Guest';
-            return view('home')->with('user', $user); // if guest
+            return view('home'); // if guest
         }
     }
 

@@ -53,8 +53,8 @@ class User extends Authenticatable
     public function pet(){
         return $this->hasMany(Pet::class);
     }
-    public function type(){
-        return $this->belongsTo(AccountType::class);
+    public function accType(){
+        return $this->belongsTo(AccountType::class, 'account_type');
     }
     public function cart(){
         return $this->hasOne(ShoppingCart::class);

@@ -20,8 +20,8 @@ Route::get('/home_user', [AuthController::class, 'homeGet'])->middleware('auth')
 Route::middleware(['auth','admin.access'])->group(function () {
     // Add all routes that should be accessible by admin
     Route::get('/dashboard', [AuthController::class, 'homeGet'])->name('dashboard');
-    Route::get('/home', [AuthController::class, 'admin_homeGet']);
-    Route::get('/home_user', [AuthController::class, 'admin_homeGet'])->name('adminhome');
+    Route::get('/admin/home', [AuthController::class, 'admin_homeGet']);
+    Route::get('/admin/home_user', [AuthController::class, 'admin_homeGet'])->name('adminhome');
     // Add more routes here
 });
 
