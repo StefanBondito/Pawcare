@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('petshop_transaction', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('pet_id')->constrained('pet')->onDelete('cascade');
-            $table->foreignId('petshop_id')->constrained('pet_shop')->onDelete('cascade');
+            $table->foreignId('user_id')->default(null)->constrained('users')->onDelete('cascade');
+            $table->foreignId('pet_id')->default(null)->constrained('pet')->onDelete('cascade');
+            $table->foreignId('petshop_id')->default(null)->constrained('pet_shop')->onDelete('cascade');
             $table->string('type');
             $table->string('status');
             $table->timestamps();

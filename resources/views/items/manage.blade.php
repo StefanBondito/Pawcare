@@ -27,7 +27,7 @@
                         <th class="align-middle text-center">Item Type</th>
                         <th class="align-middle text-center">Name</th>
                         <th class="align-middle text-center">Price</th>
-                        <th class="align-middle text-center">Logo</th>
+                        {{-- <th class="align-middle text-center">Logo</th> --}}
                         <th class="align-middle text-center">Action</th>
 
                     </tr>
@@ -39,7 +39,7 @@
                         <td class="align-middle text-center">{{ $item->itemCategory->name }}</td>
                         <td class="align-middle text-center">{{ $item->name }}</td>
                         <td class="align-middle text-center">{{ $item->price }}</td>
-                        <td class="align-middle text-center">{{ $item->logo }}</td>
+                        {{-- <td class="align-middle text-center">{{ $item->logo }}</td> --}}
                         <td class="d-flex justify-content-around p-2">
                             <a href="{{ route('items.edit', $item->id) }}" class="btn btn-primary btn-sm">
                                 <i class="fa fa-edit"></i>

@@ -26,6 +26,11 @@
                             Items
                         </a>
 
+                        <a class="nav-link" href="{{ route('petshops.manage') }}">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-clipboard"></i></div>
+                            Appointments
+                        </a>
+
 
                 </div>
             </div>

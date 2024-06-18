@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Sign Up</title>
-          <!-- !!! THE LINE BELOW IS REQUIRED SO YOU CAN USE BOOTSTRAP !!! -->
-          @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-          <!-- !!! THE LINE ABOVE IS REQUIRED SO YOU CAN USE BOOTSTRAP !!! -->
+<x-app title="Login - Pawcare">
       <style>
           @media (max-width: 768px) {
               :root {
@@ -44,8 +35,7 @@
               top: 20px; /* Position the alert below the top of the viewport */
           }
       </style>
-  </head>
-  <body class="d-flex align-items-center py-4 bg-body-tertiary">
+  <div class="d-flex align-items-center py-4 bg-body-tertiary login-bg">
     <main style="max-width: 330px; padding: 1rem;" class="content w-100 m-auto">
       <form action="/signup" method="post">
         @csrf
@@ -94,5 +84,5 @@
         <p class="mt-5 mb-3 text-body-secondary">© 2024 - Pawcare</p>
       </form>
     </main>
-  </body>
-</html>
+  </div>
+</x-app>
