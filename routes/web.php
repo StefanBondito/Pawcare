@@ -60,10 +60,10 @@ Route::middleware('auth')->group(function () {
 
 // TRANSACTION
 Route::middleware('auth')->group(function () {
-    // Route::get('transaction/manage', [TransactionController::Class, 'manage'])->name('transaction.manage');
+    Route::get('petshops/manage', [ItemController::Class, 'manage'])->name('petshops.manage');
     Route::resource('petshops', TransactionController::class);
     Route::get('/petshops', [TransactionController::Class, 'index'])->name('petshops.index');
-    Route::get('/petshops/create', [TransactionController::Class, 'create'])->name('petshops.create');
+    Route::get('/petshops/{petshop}/create', [TransactionController::Class, 'create'])->name('petshops.create');
     Route::post('/store', [TransactionController::Class, 'store'])->name('petshops.store');
 });
 
