@@ -27,7 +27,7 @@
         <div class="card-body text-center">
             <h3 class="fs-2 text-body-emphasis text-gradient text-center">Groom</h3>
             <p>Who doesn't want their pet to be clean? Give your pet the cleanup and makeover it needs.</p>
-            <a href="#" class="btn btn-primary">Book Now!</a>
+            <a href="{{ route('petshops.index') }}" class="btn btn-primary">Book Now!</a>
         </div>
       </div>
 
@@ -53,7 +53,7 @@
         <div class="card-body text-center">
             <h3 class="fs-2 text-body-emphasis text-gradient">Clinic</h3>
             <p>Sickness is a nightmare for pets, come and give them a look at our trusty pet clinics</p>
-            <a href="#" class="btn btn-primary">Book now!</a>
+            <a href="{{ route('petshops.index') }}" class="btn btn-primary">Book now!</a>
         </div>
       </div>
     </div>

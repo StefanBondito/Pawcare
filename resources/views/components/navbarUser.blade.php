@@ -19,8 +19,7 @@
               <li><a href="/home_user" class="nav-link px-2">Home</a></li>
               <li><a href="{{ route('pets.index') }}" class="nav-link px-2">Pets</a></li>
               <li><a href="{{ route('items.index') }}" class="nav-link px-2">Shop</a></li>
-              <li><a href="{{ route('petshops.index') }}" class="nav-link px-2">Groom</a></li>
-              <li><a href="{{ route('petshops.index') }}" class="nav-link px-2">Clinic</a></li>
+              <li><a href="{{ route('petshops.index') }}" class="nav-link px-2">Services</a></li>
             </ul>
 
             <div class="d-flex col-md-3 mb-md-0 text-end justify-content-center align-items-center">

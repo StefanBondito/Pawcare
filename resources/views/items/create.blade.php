@@ -42,7 +42,7 @@
 
                 <div class="row">
                     <div class="col">
-                        <a href="/home_user" class="btn btn-outline-secondary w-100">Back</a>
+                        <a href="{{ route('items.manage') }}" class="btn btn-outline-secondary w-100">Back</a>
                     </div>
                     <div class="col">
                         <button type="submit" class="btn btn-outline-primary w-100">Submit</button>

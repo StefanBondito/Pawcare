@@ -7,13 +7,37 @@
             {{-- @method('POST') --}}
                 <div class="form-group mb-3">
                     <label for='shop_name'>Shop Name</label>
-                    <input type="text" class="form-control" name="petshop" id='petshop' value="{{ $shop->shop_name }}" readonly>
-
+                    <input type="text" class="form-control" value="{{ $shop->shop_name }}" readonly>
+                    <input type="hidden" class="form-control" name="petshop" id='petshop' value="{{ $shop->id }}">
                 </div>
 
-                {{-- <div class="form-group mb-3">
-                    <label for='pet_type'>Pet Type</label>
-                    <input type="text" class="form-control" name="type" id='type' placeholder='Ex. Cat, Dog, Bird, etc' value="{{ $pet->type }}" required>
+                <div class="form-group mb-3">
+                    <label for='user_name'>Owner Name</label>
+                    <input type="text" class="form-control" value="{{ $user->name }}" readonly>
+                    <input type="hidden" class="form-control" name="user" id='user' value="{{ $user->id }}">
+                </div>
+                <div class="form-group mb-3">
+                    <label for='pet'>Pet</label>
+                        <select class="form-select" name='pet'>
+                            <option selected class="d-none" disabled>Select one of your pets</option>
+                            @foreach($pets as $pet)
+                                <option value="{{ $pet->id }}" {{ old('pet') == $pet->id? 'selected' : ""}}>{{ $pet->name }}</option>
+                            @endforeach
+                        </select>
+                    @if ($errors->has('pet'))
+                        <span class="invalid feedback text-danger"role="alert">
+                            <strong>*{{ $errors->first('pet') }}.</strong>
+                        </span>
+                    @endif
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for='service'>Service</label>
+                        <select class="form-select" name='type'>
+                            <option selected class="d-none" disabled>Select the service you want</option>
+                            <option value="Groom" id="Groom" {{ old('type') == 'Groom' ? 'selected' : '' }}>Groom</option>
+                            <option value="Clinic" id="Clinic" {{ old('type') == 'Clinic' ? 'selected' : '' }}>Clinic</option>
+                        </select>
                     @if ($errors->has('type'))
                         <span class="invalid feedback text-danger"role="alert">
                             <strong>*{{ $errors->first('type') }}.</strong>
@@ -21,39 +45,9 @@
                     @endif
                 </div>
 
-                <div class="form-group mb-3">
-                    <label for='pet_breed'>Pet Breed</label>
-                    <input type="text" class="form-control" name="breed" id='breed' placeholder='Ex. Persian, Chihuahua, etc' value="{{ $pet->breed }}" required>
-                    @if ($errors->has('breed'))
-                        <span class="invalid feedback text-danger"role="alert">
-                            <strong>*{{ $errors->first('breed') }}.</strong>
-                        </span>
-                    @endif
-                </div>
-
-                <div class="form-group mb-3">
-                    <label for='pet_dob'>Pet Date of Birth</label>
-                    <input type="text" class="form-control" name="dateOfBirth" id='dateOfBirth' placeholder='Ex. YYYY-MM-DD' value="{{ $pet->dateOfBirth }}" required>
-                    @if ($errors->has('breed'))
-                        <span class="invalid feedback text-danger"role="alert">
-                            <strong>*{{ $errors->first('dateOfBirth') }}.</strong>
-                        </span>
-                    @endif
-                </div>
-
-                <div class="form-group mb-3">
-                    <label for='pet_age'>Pet age</label>
-                    <input type="text" class="form-control" name="age" id='age' placeholder='Ex. 12, 4, etc' value="{{ $pet->age }}" required>
-                    @if ($errors->has('age'))
-                        <span class="invalid feedback text-danger"role="alert">
-                            <strong>*{{ $errors->first('age') }}.</strong>
-                        </span>
-                    @endif
-                </div> --}}
-
                 <div class="row">
                     <div class="col">
-                        <a href="{{ route("pets.store") }}" class="btn btn-outline-secondary w-100 my-2">Back</a>
+                        <a href="{{ route("petshops.index") }}" class="btn btn-outline-secondary w-100 my-2">Back</a>
                     </div>
                     <div class="col">
                         <button type="submit" class="btn btn-outline-primary w-100 my-2">Submit</button>
