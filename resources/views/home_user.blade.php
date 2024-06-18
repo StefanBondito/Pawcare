@@ -1,17 +1,17 @@
 <x-guestUser title="Homepage" :user="$user">
-    <div class="container-home">
-        <div class="landing py-2 my-2 text-center">
-            <img class="d-block mx-auto mb-4" src="/storage/images/assets/Logo.png" alt="" width="100">
-            <h1 class="display-1 title-gradient titleText">Pawcare</h1>
-            <div class="col-lg-6 mx-auto">
-                <h2 class="lead mb-4 subtitle-gradient">Pawcare does not bluff, we make a deal</h2>
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                        <button type="button" id='scrollButton' class="btn btn-primary btn-lg px-4 gap-3">Come Check Us</button>
-
-                </div>
+    {{-- @dd($user) --}}
+<div class="container-home">
+    <div class="landing py-2 my-2 text-center">
+        <img class="d-block mx-auto mb-4" src="/storage/images/assets/Logo.png" alt="" width="100">
+        <h1 class="display-1 title-gradient titleText">Pawcare</h1>
+        <div class="col-lg-6 mx-auto">
+            <h2 class="lead mb-4 subtitle-gradient">Pawcare does not bluff, we make a deal</h2>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button type="button" id='scrollButton' class="btn btn-primary btn-lg px-4 gap-3">Learn More</button>
             </div>
         </div>
     </div>
+</div>
 
     {{-- OUR FEATURES --}}
     <div class="px-2 py-2" id='features-home'>
@@ -31,18 +31,18 @@
             </div>
         </div>
 
-        <div class="feature col card mx-4 card-home">
-            <div class="card-head d-flex align-items-center justify-content-center mt-4">
-                <div class="d-flex align-items-center justify-content-center text-bg-success bg-gradient card-icon  fs-3 mb-3 py-2">
-                    <i class="fa-solid fa-cart-shopping fa-1x"></i>
-                </div>
-            </div>
-            <div class="card-body text-center">
-                <h3 class="fs-2 text-body-emphasis text-gradient text-center">Shop</h3>
-                <p>Don't have time to resupply and stock up? Come and see what our product catalogue has to offer </p>
-                <a href="#" class="btn btn-success">Shop Now!</a>
+      <div class="feature col card mx-4 card-home">
+        <div class="card-head d-flex align-items-center justify-content-center mt-4">
+            <div class="d-flex align-items-center justify-content-center text-bg-success bg-gradient card-icon  fs-3 mb-3 py-2">
+                <i class="fa-solid fa-cart-shopping fa-1x"></i>
             </div>
         </div>
+        <div class="card-body text-center">
+            <h3 class="fs-2 text-body-emphasis text-gradient text-center">Shop</h3>
+            <p>Don't have time to resupply and stock up? Come and see what our product catalogue has to offer </p>
+            <a href="/items" class="btn btn-success">Shop Now!</a>
+        </div>
+      </div>
 
         <div class="feature col card mx-4 card-home">
             <div class="card-head d-flex align-items-center justify-content-center mt-4">

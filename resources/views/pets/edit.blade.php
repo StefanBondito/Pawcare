@@ -4,7 +4,7 @@
         <x-slot name="title">Edit Pet Data</x-slot>
         <form action="{{ route("pets.update", $pet->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('POST')
+            {{-- @method('POST') --}}
                 <div class="form-group mb-3">
                     <label for='pet_name'>Pet Name</label>
                     <input type="text" class="form-control" name="name" id='name' placeholder='Ex. Chico, Shaggy, Kuro, etc' value="{{ $pet->name }}" required>

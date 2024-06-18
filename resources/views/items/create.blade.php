@@ -1,4 +1,4 @@
-<x-guestUser title="Insert Item Data" :user="$user">
+<x-admin title="Insert Item Data" :user="$admin" :type="$type">
     <x-card>
         <x-slot name="subtitle">items</x-slot>
         <x-slot name="title">Insert New Item</x-slot>
@@ -50,4 +50,4 @@
                 </div>
         </form>
     </x-card>
-</x-guestUser>
+</x-admin>

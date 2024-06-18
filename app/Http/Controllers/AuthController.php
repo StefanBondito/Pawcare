@@ -5,17 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Account;
 use App\Models\AccountType;
 use App\Models\User;
+use App\Models\Item;
 use Session;
 use Illuminate\Support\Facades\{Auth, Hash};
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function homeGet() // home page
     {
         $user = Auth::user();
@@ -26,8 +22,16 @@ class AuthController extends Controller
                 return view('home_user')->with('user', $user); // if user
             }
             elseif($user->account_type == 1){ // check if user is admin
-                // dd($user->accType);
-                return view('dashboard')->with(['user' => $user, 'type' => $type]); // if admin
+                $customerCounter = User::with('accType')->where('account_type', 3)->get()->count();
+                $productCounter = Item::all()->count();
+
+                return view('dashboard', [
+                    'user' => $user,
+                    'type' => $type,
+                    'customerCounter' => $customerCounter,
+                    'productCounter' => $productCounter,
+
+                ]); // if admin
             }
         }
         else{
@@ -53,6 +57,7 @@ class AuthController extends Controller
         $title = 'Login';
         $active = 'login';
         return view('login', compact('title', 'active'));
+
     }
 
     public function signUpGet() // sign up or registration page
@@ -74,9 +79,7 @@ class AuthController extends Controller
 
         if(Auth::guard('web')->attempt($credentials, $remember)){ // attempt to check credentials on User
             $request->session()->regenerate();
-            $user = Auth::user();
-            // $type = AccountType::find($user->account_type);
-            // dd($type);
+            $user = Auth::user()->find(Auth::user()->id);
             switch ($user->account_type) {
                 case 1:
                     return redirect()->intended('dashboard')->with('user', $user); //nothing yet
@@ -116,7 +119,7 @@ class AuthController extends Controller
     public function logoutPost()
     {
         Session::flush();
-        
+
         Auth::logout();
 
         return redirect('login')->with('logout', 'Succesfully logged out.');

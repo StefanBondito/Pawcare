@@ -2,15 +2,37 @@ $darkBlue: #4f6a7f;
 $darkGreenBlue: #015F80;
 $greenBlue:  #02809A;
 $lightBlue: #79b0b2;
+$darkOrange: #d28e6c;
+$brightOrange: #e2a833;
 
 .container-home{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0,0,0,0.9)), url('/public/storage/images/assets/petshop-wallpaper.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0,0,0,0.9)), url('/public/storage/images/assets/petshop-wallpaper.jpg');
     background-size: cover;
     height: 600px;
-    padding-top: 50px;
-    // margin-bottom: 40px;
+    padding-top: 30px;
+
 }
 
+.button-text{
+    font-weight: bold;
+}
+
+.custom-button{
+    background: $brightOrange;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: .3s ease-in-out;
+    font-size: 18px;
+    color: white !important;
+}
+
+.custom-button:hover{
+    background: $darkOrange;
+    color: white !important;
+    font-weight: bold;
+}
+
+// TEXT MODS
 .title-gradient{
     background: -webkit-linear-gradient(0deg, (#d28e6c) 30%, (#e2a833) 75%);
     -webkit-background-clip: text;
@@ -18,12 +40,32 @@ $lightBlue: #79b0b2;
     color: transparent;
     font-weight: bolder;
 }
+
 .text-gradient{
     background: -webkit-linear-gradient(0deg, #79b0b2, (#4f6a7f));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    font-weight: bolder;
+    font-weight: 900;
+}
+
+.bold-text{
+    font-weight: 900;
+}
+
+.norm-text{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.large-text{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.data-text{
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .background-shade{
@@ -31,7 +73,7 @@ $lightBlue: #79b0b2;
 }
 
 .subtitle-gradient{
-    background: -webkit-linear-gradient(90deg, #79b0b2, (#4f6a7f) 75%);
+    background: -webkit-linear-gradient(90deg, #058ecc, (#4ec1c1) 50%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
@@ -80,10 +122,6 @@ $lightBlue: #79b0b2;
     color: $lightBlue;
 }
 
-.norm-text{
-    font-size: 20px;
-    font-weight: 500;
-}
 
 .home-image{
     width: 75%;
@@ -116,6 +154,12 @@ $lightBlue: #79b0b2;
 .text-button{
     font-family: 'Courier New', Courier, sans-serif;
 
+}
+
+.hidden-link{
+    color: inherit;
+    text-decoration: none;
+    cursor: default;
 }
 
 // SIDEBAR NAVIGATION
