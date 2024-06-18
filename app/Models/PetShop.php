@@ -16,6 +16,9 @@ class PetShop extends Model
         'shop_name',
         'address'
     ];
+    public function user(){
+        return $this;
+    }
 
     public function sell(){
         return $this->hasMany(Item::class);
@@ -27,5 +30,8 @@ class PetShop extends Model
 
     public function account(){
         return $this->belongsTo(User::class);
+    }
+    public function transaction(){
+        return $this->hasMany(Transaction::class, 'petshop_id');
     }
 }
