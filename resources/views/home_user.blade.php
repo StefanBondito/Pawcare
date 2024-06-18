@@ -1,5 +1,5 @@
 <x-guestUser title="Homepage" :user="$user">
-
+    {{-- @dd($user) --}}
 <div class="container-home">
     <div class="landing py-2 my-2 text-center">
         <img class="d-block mx-auto mb-4" src="/storage/images/assets/Logo.png" alt="" width="100">
@@ -7,8 +7,7 @@
         <div class="col-lg-6 mx-auto">
             <h2 class="lead mb-4 subtitle-gradient">Pawcare does not bluff, we make a deal</h2>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button type="button" id='scrollButton' class="btn btn-primary btn-lg px-4 gap-3">Come Check Us</button>
-
+                    <button type="button" id='scrollButton' class="btn btn-primary btn-lg px-4 gap-3">Learn More</button>
             </div>
         </div>
     </div>
@@ -41,7 +40,7 @@
         <div class="card-body text-center">
             <h3 class="fs-2 text-body-emphasis text-gradient text-center">Shop</h3>
             <p>Don't have time to resupply and stock up? Come and see what our product catalogue has to offer </p>
-            <a href="#" class="btn btn-success">Shop Now!</a>
+            <a href="/items" class="btn btn-success">Shop Now!</a>
         </div>
       </div>
 

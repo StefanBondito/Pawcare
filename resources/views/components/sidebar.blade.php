@@ -5,8 +5,8 @@
                 <div class="nav">
                     <div class="sb-sidenav-header mt-2">
                         <div class="d-flex flex-column justify-content-center align-item-center text-center">
-                            <span class="mt-2">Welcome, {{ $user->name }}</span>
-                            <small class="text" style="color: rgba(255, 255, 255, 0.8);">{{ $type->name }}</small>
+                            <span class="mt-2 button-text large-text">Welcome, {{ $user->name }}</span>
+                            <small class="text data-text" style="color: rgba(255, 255, 255, 0.8);">{{ $type->name }}</small>
                         </div>
                     </div>
                     <div class="sb-sidenav-menu-heading">Core</div>
@@ -17,12 +17,12 @@
 
                     <div class="sb-sidenav-menu-heading">Management</div>
                         <a class="nav-link" href="{{ route('pets.manage') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-hand-holding-dollar"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-paw"></i></div>
                             Pets
                         </a>
 
                         <a class="nav-link" href="{{ route('items.manage') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-hand-holding-dollar"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-box"></i></div>
                             Items
                         </a>
 

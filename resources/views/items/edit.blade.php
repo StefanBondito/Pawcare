@@ -1,7 +1,20 @@
-<x-guestUser title="Edit Item Data" :user="$user">
+<x-admin title="Edit Item Data" :user="$admin" :type="$type">
     <x-card>
         <x-slot name="subtitle">items</x-slot>
         <x-slot name="title">Edit Item</x-slot>
+        @if(session()->has('success'))
+                    <div class="alert alert-danger alert-dismissable fade show" role="alert">
+                        <strong>{{ session('success') }}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if(session()->has('error'))
+                    <div class="alert alert-danger alert-dismissable fade show" role="alert">
+                        <strong>{{ session('error') }}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
         <form action="{{ route("items.update", $item->id) }}" method="post" enctype="multipart/form-data">
             @csrf
                 <div class="form-group mb-3">
@@ -50,4 +63,4 @@
                 </div>
         </form>
     </x-card>
-</x-guestUser>
+</x-admin>

@@ -106,6 +106,6 @@ class PetController extends Controller
     public function delete(Pet $pet)
     {
         $pet->delete();
-        return redirect('pets.manage')->with('success', 'Pet Data Deleted Successfully');
+        return redirect('pets')->with('success', 'Pet Data Deleted Successfully');
     }
 }
