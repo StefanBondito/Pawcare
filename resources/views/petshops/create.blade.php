@@ -7,7 +7,7 @@
             {{-- @method('POST') --}}
                 <div class="form-group mb-3">
                     <label for='shop_name'>Shop Name</label>
-                    <input type="text" class="form-control" name="petshop" id='petshop' value="{{ $shop->id }}" readonly>
+                    <input type="text" class="form-control" name="petshop" id='petshop' value="{{ $shop->shop_name }}" readonly>
 
                 </div>
 

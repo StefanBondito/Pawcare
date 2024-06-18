@@ -16,9 +16,9 @@
                                         <hr>
                                         <div class="card-text data-text">{{ $shop->address }}</div>
                                         <div class="d-flex row mt-2 row-cols-2 row-cols-lg-4 align-items-center justify-content-center">
-                                                <a href="{{ route('petshops.create', $shop->id) }}" title="Create Appointment" class="btn btn-primary w-75 my-2">
-                                                    Order a service
-                                                </a>
+                                            <a href="{{ route('petshops.create',['shop' => $shop->id]) }}" title="Create Appointment" class="btn btn-primary w-75 my-2">
+                                                Order a service
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
