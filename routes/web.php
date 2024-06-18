@@ -58,7 +58,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/items/cart-store', [ItemController::Class, 'storeCart'])->name('items.save');
 });
 
-// TRANSGENDER
+// TRANSACTION
 Route::middleware('auth')->group(function () {
     // Route::get('transaction/manage', [TransactionController::Class, 'manage'])->name('transaction.manage');
     Route::resource('petshops', TransactionController::class);
