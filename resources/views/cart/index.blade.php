@@ -26,7 +26,7 @@
             <ul id="cart-items">
                 @foreach ($cart->content as $content)
                     <li id="cart-item-{{ $content->item_id }}">
-                        {{ $content->item->name }} - Price: ${{ number_format($content->item->price, 2) }} 
+                        {{ $content->item->name }} - Price: ${{ number_format($content->item->price, 2) }}
                         <!-- Decrease button -->
                         <button type="button" class="decrease" data-id="{{ $content->item_id }}" data-price="{{ $content->item->price }}">
                             Decrease
@@ -39,6 +39,7 @@
                     </li>
                 @endforeach
             </ul>
+            <hr>
             <h2>All Available Items</h2>
             <ul>
                 @foreach ($items as $item)
@@ -141,7 +142,7 @@
                     var listItem = document.createElement('li');
                     listItem.id = 'cart-item-' + itemId;
                     listItem.innerHTML = `
-                        ${itemName} - Price: $${itemPrice.toFixed(2)} 
+                        ${itemName} - Price: $${itemPrice.toFixed(2)}
                         <button type="button" class="decrease" data-id="${itemId}" data-price="${itemPrice}">
                             Decrease
                         </button>

@@ -12,8 +12,7 @@ use App\Http\Controllers\UserController;
 Auth::routes();
 
 Route::get('/', [AuthController::class, 'homeGet']);
-Route::get('/home', [AuthController::class, 'homeGet']);
-Route::get('/home_user', [AuthController::class, 'homeGet'])->middleware('auth')->name('home');
+Route::get('/home_user', [AuthController::class, 'homeGet'])->middleware('auth')->name('home_user');
 
 
 // Apply admin access middleware
@@ -21,7 +20,7 @@ Route::middleware(['auth','admin.access'])->group(function () {
     // Add all routes that should be accessible by admin
     Route::get('/dashboard', [AuthController::class, 'homeGet'])->name('dashboard');
     Route::get('/admin/home', [AuthController::class, 'admin_homeGet']);
-    Route::get('/admin/home_user', [AuthController::class, 'admin_homeGet'])->name('adminhome');
+    Route::get('/admin/home_user', [AuthController::class, 'admin_homeGet'])->name('admin-home');
     // Add more routes here
 });
 
@@ -32,11 +31,9 @@ Route::middleware('auth.redirect')->group(function () {
     Route::post('/signup',[AuthController::class, 'registerPost']);
 });
 
-Route::controller(PetController::class)->prefix('pets')->name('pets.')->group(function () {
-    Route::delete('{pet}/delete', 'delete')->name('delete');
-});
-
+// PETS
 Route::middleware('auth')->group(function () {
+    Route::get('pets/manage', [PetController::Class, 'manage'])->name('pets.manage');
     Route::resource('pets', PetController::class);
     Route::get('/pets', [PetController::Class, 'index'])->name('pets.index');
     Route::post('/store', [PetController::Class, 'store'])->name('pets.store');
@@ -44,23 +41,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('pets/{pet}/delete', [PetController::Class, 'delete'])->name('pets.delete');
 });
 
-Route::middleware('auth')->group(function () {
-    Route::resource('cart', ShoppingCartController::class);
-    Route::get('/cart', [ShoppingCartController::Class, 'index'])->name('cart.index');
-    Route::post('/cart/store', [ShoppingCartController::Class, 'store'])->name('cart.save');
-});
-
-
+// LOG OUT
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [AuthController::Class, 'logoutPost'])->middleware('auth')->name('logout');
 });
 
+// ITEMS
 Route::middleware('auth')->group(function () {
+    Route::get('items/manage', [ItemController::Class, 'manage'])->name('items.manage');
     Route::resource('items', ItemController::class);
     Route::delete('items/{item}/delete', [ItemController::Class, 'delete'])->name('items.delete');
     Route::post('/store', [ItemController::Class, 'store'])->name('items.store');
     Route::get('/items', [ItemController::Class, 'index'])->name('items.index');
     Route::post('items/{item}/update', [ItemController::Class, 'update'])->name('items.update');
+    Route::post('/items/cart-store', [ItemController::Class, 'storeCart'])->name('items.save');
 });
 
 

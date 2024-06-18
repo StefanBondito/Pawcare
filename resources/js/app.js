@@ -1,18 +1,11 @@
 import './bootstrap';
-// import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
-// import "@fortawesome/fontawesome-free/scss/brands.scss";
-// import "@fortawesome/fontawesome-free/scss/regular.scss";
-// import "@fortawesome/fontawesome-free/scss/solid.scss";
+import $ from 'jquery';
+import 'datatables.net-dt';
 
-import DataTable from "datatables.net-dt";
-window.DataTable = DataTable;
-
+// require("datatables.net-dt");
 $(document).ready(function(){
     $("#dataTables").DataTable();
-    $(".dataTables").DataTable();
 
-    $("#alert").modal();
-    $("#alert").modal("show");
 });
 
 var myModal = new bootstrap.Modal(document.getElementById("alert"));

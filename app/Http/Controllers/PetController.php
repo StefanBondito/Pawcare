@@ -26,7 +26,11 @@ class PetController extends Controller
     }
 
     public function manage(){
+        $admin = Auth::user()->with('accType')->find(Auth::user()->account_type); // gets the current user info
+        $type = $admin->accType;
         return view('pets.manage', [
+            'admin' => $admin,
+            'type' =>$type,
             'pets'=>Pet::all(),
         ]);
     }
@@ -102,6 +106,6 @@ class PetController extends Controller
     public function delete(Pet $pet)
     {
         $pet->delete();
-        return redirect('pets.manage')->with('success', 'Pet Data Deleted Successfully');
+        return redirect('pets')->with('success', 'Pet Data Deleted Successfully');
     }
 }

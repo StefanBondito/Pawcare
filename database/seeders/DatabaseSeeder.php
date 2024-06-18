@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             PetSeeder::class,
             ShopContactInfoSeeder::class,
             ShopCartSeeder::class,
-            ShopContentSeeder::class,
+            // ShopContentSeeder::class,
         ]);
     }
 }

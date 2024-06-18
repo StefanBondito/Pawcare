@@ -14,6 +14,6 @@ class ItemType extends Model
     protected $guarded = [];
 
     public function item(){
-        return $this->hasMany(Item::class);
+        return $this->hasMany(Item::class, 'type_id');
     }
 }
