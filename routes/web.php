@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ShoppingCartController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\ItemController;
@@ -57,4 +58,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/items/cart-store', [ItemController::Class, 'storeCart'])->name('items.save');
 });
 
+// TRANSGENDER
+Route::middleware('auth')->group(function () {
+    // Route::get('transaction/manage', [TransactionController::Class, 'manage'])->name('transaction.manage');
+    Route::resource('petshops', TransactionController::class);
+    Route::get('/petshops', [TransactionController::Class, 'index'])->name('petshops.index');
+    Route::get('/petshops/create', [TransactionController::Class, 'create'])->name('petshops.create');
+    Route::post('/store', [TransactionController::Class, 'store'])->name('petshops.store');
+});
 
