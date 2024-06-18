@@ -79,13 +79,13 @@ class AuthController extends Controller
             // dd($type);
             switch ($user->account_type) {
                 case 1:
-                    return redirect()->intended('dashboard'); //nothing yet
+                    return redirect()->intended('dashboard')->with('user', $user); //nothing yet
                 case 2:
                     return redirect()->intended('home_petshop'); //nothing yet
                 case 3:
-                    return redirect()->intended('home_user')->with('user', $user);
+                    return redirect()->intended('home_user')->with('user', Auth::user()->find(Auth::user()->id));
                 default:
-                    return redirect()->intended('/');
+                    return redirect()->intended('/')->with('user', $user);
             }
         }
 
