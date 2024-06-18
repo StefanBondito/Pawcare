@@ -27,14 +27,15 @@ class TransactionController extends Controller
         ]);
     }
 
-    public function create(PetShop $shop)
+    public function create($shop)
     {
+        $shop = PetShop::findOrFail($shop);
+        // dd($shop);
         $user = Auth::user()->with('pet')->find(Auth::id());
         $pets = $user->pet;
-        dd($shop);
         if($pets){
             return view('petshops.create')->with([ //redirect to pet shop page example: petshops/Petcare
-                compact('shop'),
+                'shop' => $shop,
                 'user' => $user,
                 'pets' => $pets
             ]);

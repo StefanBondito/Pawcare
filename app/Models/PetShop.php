@@ -11,7 +11,7 @@ class PetShop extends Model
     protected $table = 'pet_shop';
     protected $primaryKey = 'id';
     protected $timestamp = 'true';
-    protected $guarded = [];
+    protected $guarded = ['id'];
     protected $fillable = [
         'shop_name',
         'address'
