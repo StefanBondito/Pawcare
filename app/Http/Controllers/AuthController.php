@@ -16,10 +16,10 @@ class AuthController extends Controller
     {
         $user = Auth::user();
         if($user){
-            $user = Auth::user()->with('accType')->find(Auth::user()->account_type); // gets the current user info
+            $user->load('accType'); // gets the current user info
             $type = $user->accType;
             if($user->account_type == 3){ // check if user is logged in
-                return view('home_user')->with('user', $user); // if user
+                return view('home_user', ['user' => $user]); // if user
             }
             elseif($user->account_type == 1){ // check if user is admin
                 $customerCounter = User::with('accType')->where('account_type', 3)->get()->count();
@@ -35,7 +35,7 @@ class AuthController extends Controller
             }
         }
         else{
-            return view('home')->with('user', $user); // if guest
+            return view('home'); // if guest
         }
     }
 
@@ -44,11 +44,11 @@ class AuthController extends Controller
         $user = Auth::user(); // gets the current user info
 
         if($user){
-            return view('home_user')->with('user', $user); // if user
+            return view('home_user', ['user' => $user]); // if user
         }
         else{
             $user = 'Guest';
-            return view('home')->with('user', $user); // if guest
+            return view('home', ['user' => $user]); // if guest
         }
     }
 
@@ -82,13 +82,13 @@ class AuthController extends Controller
             $user = Auth::user()->find(Auth::user()->id);
             switch ($user->account_type) {
                 case 1:
-                    return redirect()->intended('dashboard');
+                    return redirect()->intended('dashboard')->with('user', $user); //nothing yet
                 case 2:
                     return redirect()->intended('home_petshop'); //nothing yet
                 case 3:
                     return redirect()->intended('home_user')->with('user', $user);
                 default:
-                    return redirect()->intended('/');
+                    return redirect()->intended('/')->with('user', $user);
             }
         }
 
