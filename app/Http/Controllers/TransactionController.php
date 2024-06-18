@@ -13,11 +13,15 @@ class TransactionController extends Controller
 {
     public function index()
     {
+        $user = Auth::user();
         $shops = PetShop::all();
-        return view('petshops')->with('shops', $shops);
+        return view('petshops')->with([
+            'shops'=> $shops,
+            'user' =>$user,
+        ]);
     }
 
-    public function getSelection(PetShop $shop)
+    public function create(PetShop $shop)
     {
         $user = Auth::user()->with('pet')->find(Auth::id());
         $pets = $user->pet;
@@ -33,7 +37,7 @@ class TransactionController extends Controller
         }
     }
 
-    public function postSelection(Request $request)
+    public function store(Request $request)
     {
         $credentials = $request->validate([ // validate inputted email and password
             'petshop' => 'required',
@@ -52,7 +56,7 @@ class TransactionController extends Controller
             ]);
             return redirect('petshops.index')->with('success', 'Transaction succesfully created.');
         }
-        
+
         else{
             return view('pets.index')->with(['pets' => null, 'user' => Auth::user()]);
         }
