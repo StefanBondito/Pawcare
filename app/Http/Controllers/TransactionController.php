@@ -15,9 +15,15 @@ class TransactionController extends Controller
     {
         $user = Auth::user();
         $shops = PetShop::all();
-        return view('petshops')->with([
+        return view('petshops.index')->with([
             'shops'=> $shops,
             'user' =>$user,
+        ]);
+    }
+
+    public function manage(){
+        return view('petshops.manage', [
+
         ]);
     }
 
@@ -25,9 +31,10 @@ class TransactionController extends Controller
     {
         $user = Auth::user()->with('pet')->find(Auth::id());
         $pets = $user->pet;
+        dd($shop);
         if($pets){
             return view('petshops.create')->with([ //redirect to pet shop page example: petshops/Petcare
-                'shop' => $shop,
+                compact('shop'),
                 'user' => $user,
                 'pets' => $pets
             ]);
@@ -46,7 +53,7 @@ class TransactionController extends Controller
             'type' => 'required|in:Groom,Clinic'
         ]);
 
-        if($credentials != null){
+        if($credentials){
             Transaction::create([
                 'shop' => $request->petshop,
                 'user' => $request->user,
@@ -57,8 +64,8 @@ class TransactionController extends Controller
             return redirect('petshops.index')->with('success', 'Transaction succesfully created.');
         }
 
-        else{
-            return view('pets.index')->with(['pets' => null, 'user' => Auth::user()]);
-        }
+        // else{
+        //     return view('pets.index')->with(['pets' => null, 'user' => Auth::user()]);
+        // }
     }
 }
