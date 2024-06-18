@@ -24,4 +24,7 @@ class Pet extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function transaction(){
+        return $this->hasOne(Transaction::class, 'pet_id');
+    }
 }
