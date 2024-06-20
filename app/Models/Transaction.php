@@ -15,6 +15,7 @@ class Transaction extends Model
         'user_id',
         'pet_id',
         'petshop_id',
+        'type',
         'status',
     ];
 
