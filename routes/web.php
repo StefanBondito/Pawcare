@@ -60,7 +60,7 @@ Route::middleware('auth')->group(function () {
 
 // TRANSACTION
 Route::middleware('auth')->group(function () {
-    Route::get('petshops/manage', [ItemController::Class, 'manage'])->middleware('admin.access')->name('petshops.manage');
+    Route::get('petshops/manage', [TransactionController::Class, 'manage'])->name('petshops.manage');
     Route::resource('petshops', TransactionController::class);
     Route::get('/petshops', [TransactionController::Class, 'index'])->name('petshops.index');
     Route::get('/petshops/{petshop}/create', [TransactionController::Class, 'create'])->name('petshops.create');

@@ -22,8 +22,12 @@ class TransactionController extends Controller
     }
 
     public function manage(){
+        $admin = Auth::user()->with('accType')->find(Auth::user()->account_type); // gets the current user info
+        $type = $admin->accType;
         return view('petshops.manage', [
-
+            'admin' => $admin,
+            'type' =>$type,
+            "transactions"=>Transaction::all(),
         ]);
     }
 
@@ -47,6 +51,7 @@ class TransactionController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
         $credentials = $request->validate([ // validate inputted email and password
             'petshop' => 'required',
             'user' => 'required',
@@ -56,13 +61,13 @@ class TransactionController extends Controller
 
         if($credentials){
             Transaction::create([
-                'shop' => $request->petshop,
-                'user' => $request->user,
-                'pet' => $request->pet,
+                'petshop_id' => $request->petshop,
+                'user_id' => $request->user,
+                'pet_id' => $request->pet,
                 'type' => $request->type,
                 'status' => 'In Progress',
             ]);
-            return redirect('petshops.index')->with('success', 'Transaction succesfully created.');
+            return redirect()->route('petshops.index')->with('success', 'Transaction succesfully created.');
         }
 
         // else{

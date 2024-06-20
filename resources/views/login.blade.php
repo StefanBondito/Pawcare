@@ -23,7 +23,7 @@
     }
   </style>
 
-  <div class="d-flex align-items-center py-2 bg-body-tertiary">
+  <div class="d-flex align-items-center py-2 bg-body-tertiary login-bg">
     <main style="max-width: 330px; padding: 1rem;" class="content w-100 m-auto">
       <form action="/login" method="post">
         @csrf

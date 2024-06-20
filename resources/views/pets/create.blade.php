@@ -56,7 +56,7 @@
 
                 <div class="row">
                     <div class="col">
-                        <a href="{{ route("pets.store") }}" class="btn btn-outline-secondary w-100 my-2">Back</a>
+                        <a href="{{ route("pets.index") }}" class="btn btn-outline-secondary w-100 my-2">Back</a>
                     </div>
                     <div class="col">
                         <button type="submit" class="btn btn-outline-primary w-100 my-2">Submit</button>

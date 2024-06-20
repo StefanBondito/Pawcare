@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Account;
 use App\Models\AccountType;
+use App\Models\Transaction;
 use App\Models\User;
 use App\Models\Item;
 use Session;
@@ -24,12 +25,13 @@ class AuthController extends Controller
             elseif($user->account_type == 1){ // check if user is admin
                 $customerCounter = User::with('accType')->where('account_type', 3)->get()->count();
                 $productCounter = Item::all()->count();
-
+                $appointmentCounter = Transaction::all()->count();
                 return view('dashboard', [
                     'user' => $user,
                     'type' => $type,
                     'customerCounter' => $customerCounter,
                     'productCounter' => $productCounter,
+                    'appointmentCounter' => $appointmentCounter,
 
                 ]); // if admin
             }

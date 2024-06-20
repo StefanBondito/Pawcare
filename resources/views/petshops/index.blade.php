@@ -4,6 +4,12 @@
         <div class="card-header bg-dark-green-blue"></div>
         <div class="card-body mb-3">
             <div class="container mt-3">
+                @if(session()->has('success'))
+          <div class="alert alert-success alert-dismissable fade show" role="alert">
+            <strong>{{ session('success') }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        @endif
                 <h1 class="text-center title-gradient mb-5">Petshops</h1>
                 @if ($shops)
                     @foreach ($shops->chunk(2) as $chunk)
