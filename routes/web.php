@@ -34,7 +34,7 @@ Route::middleware('auth.redirect')->group(function () {
 
 // PETS
 Route::middleware('auth')->group(function () {
-    Route::get('pets/manage', [PetController::Class, 'manage'])->name('pets.manage');
+    Route::get('pets/manage', [PetController::Class, 'manage'])->middleware('admin.access')->name('pets.manage');
     Route::resource('pets', PetController::class);
     Route::get('/pets', [PetController::Class, 'index'])->name('pets.index');
     Route::post('/store', [PetController::Class, 'store'])->name('pets.store');
@@ -49,7 +49,7 @@ Route::middleware('auth')->group(function () {
 
 // ITEMS
 Route::middleware('auth')->group(function () {
-    Route::get('items/manage', [ItemController::Class, 'manage'])->name('items.manage');
+    Route::get('items/manage', [ItemController::Class, 'manage'])->middleware('admin.access')->name('items.manage');
     Route::resource('items', ItemController::class);
     Route::delete('items/{item}/delete', [ItemController::Class, 'delete'])->name('items.delete');
     Route::post('/store', [ItemController::Class, 'store'])->name('items.store');
