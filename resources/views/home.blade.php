@@ -2,7 +2,7 @@
 
     <div class="container-home">
         <div class="landing py-2 my-2 text-center">
-            <img class="d-block mx-auto mb-4" src="/storage/images/assets/Logo.png" alt="" width="100">
+            <img class="d-block mx-auto mb-4" src="/storage/images/assets/Logo.png" alt="" width="125">
             <h1 class="display-1 title-gradient titleText">Pawcare</h1>
             <div class="col-lg-6 mx-auto">
                 <h2 class="lead mb-4 subtitle-gradient">Pawcare does not bluff, we make a deal</h2>

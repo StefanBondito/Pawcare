@@ -154,6 +154,6 @@ class ItemController extends Controller
     public function delete(Item $item)
     {
         $item->delete();
-        return redirect('items.manage')->with('items', 'Item Data Deleted');
+        return redirect()->route('items.manage')->with('items', 'Item Data Deleted');
     }
 }

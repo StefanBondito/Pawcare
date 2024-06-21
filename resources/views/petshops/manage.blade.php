@@ -1,7 +1,7 @@
 <x-admin title="Manage Appointments" :user="$admin" :type="$type">
     <x-card>
         <x-slot name="subtitle">Appointments</x-slot>
-        <x-slot name="title">appoinment list</x-slot>
+        <x-slot name="title">Appointment List</x-slot>
         @if($transactions->count()>0)
         <div class="table-responsive py-2">
             <table class="table table-sm table-striped table-bordered no-footer">

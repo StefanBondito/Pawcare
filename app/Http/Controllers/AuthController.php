@@ -73,7 +73,7 @@ class AuthController extends Controller
     public function loginPost(Request $request) // login activity
     {
         $credentials = $request->validate([ // validate inputted email and password
-            'email' => 'required|email:dns',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
 
@@ -102,7 +102,7 @@ class AuthController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|min:3',
-            'email' => 'required|email:dns|unique:users',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:5|max:255|confirmed',
         ]);
 
