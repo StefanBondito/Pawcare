@@ -1,4 +1,4 @@
-<x-app title="Login - Pawcare">
+<x-app title="Sign Up - Pawcare">
       <style>
           @media (max-width: 768px) {
               :root {
@@ -43,9 +43,9 @@
         <div class="text-center">
             <img class="mb-4" src="/storage/images/assets/Logo.png" alt="" width="100">
         </div>
-        <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
+        <h1 class="h3 mb-3 fw-normal text-center">Sign Up</h1>
 
-        <div class="form-floating">
+        <div class="form-floating my-1">
           <input type="name" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Name" autofocus required value="{{old('name')}}">
           <label for="name">Name</label>
           @error('name')
@@ -55,7 +55,7 @@
           @enderror
         </div>
 
-        <div class="form-floating">
+        <div class="form-floating my-1">
           <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" required value="{{old('email')}}">
           <label for="email">Email address</label>
           @error('email')
@@ -64,7 +64,7 @@
             </div>
           @enderror
         </div>
-        <div class="form-floating">
+        <div class="form-floating my-1">
           <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password" required>
           <label for="password">Password</label>
           @error('password')
@@ -73,7 +73,7 @@
             </div>
           @enderror
         </div>
-        <div class="form-floating">
+        <div class="form-floating my-1">
           <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Confirm Password" required>
           <label for="password_confirmation">Confirm Password</label>
         </div>
